@@ -2,6 +2,6 @@
 
 @section ('content')
 
-<p>Seccion para mostrar los datos del paciente</p>
+<p>{{ $paciente->id }}</p>
 
 @endsection

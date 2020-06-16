@@ -7,6 +7,8 @@
     <meta name="description" content="">
     @yield('title')
 
+    <link rel = "icon" href="/assets/logo-fondo-blanco.png" type = "image/x-icon">
+
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -18,7 +20,12 @@
 
     @include('layouts.navbar')
 
-    @yield('content')
+    <div class="container mt-4">
+        
+        @yield('content')
+    
+    </div>
+    
 
     @yield('footer')
 
