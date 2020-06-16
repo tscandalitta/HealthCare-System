@@ -19,6 +19,9 @@ class CreatePacientesTable extends Migration
             $table->string('nombre');
             $table->string('apellido');
             $table->text('historia_clinica');
+            $table->string('direccion');
+            $table->string('telefono');
+            $table->integer('id_patologia');
             $table->timestamps();
         });
     }
