@@ -47,9 +47,13 @@ class PacienteController extends Controller
      *
      * @param  \App\Paciente  $paciente
      */
-    public function show(Paciente $paciente)
+    public function show($dni)
     {
-        return view('pacientes.show',compact('paciente'));
+        $paciente = Paciente::query()
+                        ->where('dni', 'LIKE', $dni)
+                        ->get();
+
+        return $paciente;
     }
 
     /**
