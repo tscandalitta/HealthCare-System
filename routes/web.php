@@ -2,14 +2,17 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('login');
-});
+Route::get('/', 'HomeController@index');
 
-Route::get('/pacientes/index', 'PacienteController@index');
+Route::get('/index', 'PacienteController@index');
 
- Route::get('/pacientes/show/{paciente}', 'PacienteController@show');
+Route::get('/pacientes/show/{paciente}', 'PacienteController@show');
 
-// Route::get('/pacientes/edit', 'PacienteController');
+Route::get('/pacientes/create', 'PacienteController@create');
+
+Route::post('/pacientes', 'PacienteController@store');
 
 // Route::get('/pacientes/destroy', 'PacienteController');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
