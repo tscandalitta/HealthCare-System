@@ -2,9 +2,10 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
-
-class Paciente extends Model
+class Paciente extends Model 
 {
-    //
+    public function patologias()
+    {
+        return $this->hasMany(Patologia::class);
+    }
 }
