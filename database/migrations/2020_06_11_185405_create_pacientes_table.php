@@ -21,7 +21,7 @@ class CreatePacientesTable extends Migration
             $table->text('historia_clinica')->nullable();
             $table->string('direccion')->nullable();
             $table->string('telefono')->nullable();
-            $table->integer('id_obrasocial')->nullable();
+            $table->integer('obra_social_id')->nullable();
             $table->timestamps();
         });
     }
