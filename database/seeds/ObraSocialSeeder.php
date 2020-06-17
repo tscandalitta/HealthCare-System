@@ -11,6 +11,6 @@ class ObraSocialSeeder extends Seeder
      */
     public function run()
     {
-        //
+        factory(App\ObraSocial::class, 10)->create();
     }
 }

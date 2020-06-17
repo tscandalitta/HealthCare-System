@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateObraSocialsTable extends Migration
+class CreateObrasSocialesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,10 @@ class CreateObraSocialsTable extends Migration
      */
     public function up()
     {
-        Schema::create('obra_socials', function (Blueprint $table) {
+        Schema::create('obras_sociales', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
+            $table->string('sigla')->unique()->nullable();
             $table->timestamps();
         });
     }
@@ -27,6 +28,6 @@ class CreateObraSocialsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('obra_socials');
+        Schema::dropIfExists('obras_sociales');
     }
 }

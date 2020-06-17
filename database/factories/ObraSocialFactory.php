@@ -7,6 +7,7 @@ use Faker\Generator as Faker;
 
 $factory->define(ObraSocial::class, function (Faker $faker) {
     return [
-        //
-    ];
+        'nombre' => $faker->company(),
+        'sigla' => $faker->unique()->stateAbbr()
+        ];
 });
