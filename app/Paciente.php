@@ -4,8 +4,8 @@ namespace App;
 
 class Paciente extends Model 
 {
-    public function patologias()
+    public function obraSocial()
     {
-        return $this->hasMany(Patologia::class);
+        // return $this->hasMany(ObraSocial::class); ES UNA SOLA
     }
 }
