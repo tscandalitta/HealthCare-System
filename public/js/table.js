@@ -5,12 +5,24 @@ $(document).ready(function () {
         buscarPaciente(dniPaciente);
 
     });
-    $('#tabla-pacientes').DataTable();
+    $('#tabla-pacientes').DataTable( {
+        "pageLength": 10,
+        "dom": '<f>rt<"row justify-content-center"p>'
+    } );
 
     function buscarPaciente(dni) {
         var url = "/pacientes/" + dni + "/show";
         $.get(url, function(data) {
-            alert(JSON.stringify(data));
+            mostrarInfoPaciente(data);
         })
+    }
+
+    function mostrarInfoPaciente(datosJson) {
+        var paciente = datosJson[0];
+        $("#field-nombre").text(paciente["apellido"] + ", " + paciente["nombre"]);
+        $("#field-dni").text(paciente["dni"]);
+        $("#field-direccion").text(paciente["direccion"]);
+        $("#field-telefono").text(paciente["telefono"]);
+        $("#field-historiaClinica").text(paciente["historia_clinica"]);
     }
 });
