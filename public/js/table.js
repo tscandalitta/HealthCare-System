@@ -11,15 +11,16 @@ $(document).ready(function () {
     } );
 
     function buscarPaciente(dni) {
-        var url = "/pacientes/" + dni + "/show";
+        var url = "/pacientes/" + dni;
         $.get(url, function(data) {
             mostrarInfoPaciente(data);
-        })
+        });
     }
 
     function mostrarInfoPaciente(datosJson) {
         var paciente = datosJson[0];
         $("#field-nombre").text(paciente["apellido"] + ", " + paciente["nombre"]);
+        $("#field-id").text(paciente["id"]);
         $("#field-dni").text(paciente["dni"]);
         $("#field-direccion").text(paciente["direccion"]);
         $("#field-telefono").text(paciente["telefono"]);

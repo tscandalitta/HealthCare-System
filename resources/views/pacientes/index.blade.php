@@ -37,6 +37,7 @@
         <div class="col-lg-7">
             <div class="card" id="card-pacientes">
                 <div class="card-header">
+                    <label id="field-id" hidden></label>
                     <div class="row">
                         <div class="col">
 
@@ -55,6 +56,12 @@
                     <label for="field-historiaClinica">Historia clínica</label>
                     <textarea class="form-control mb-3" id="field-historiaClinica" rows="8"></textarea>
                     <a href="#" class="btn btn-primary">Guardar HC</a>
+                    <form method="POST" action="/pacientes/42">
+                        @method('DELETE')
+                        @csrf
+                        <button type="submit">Borrar id 42</button>
+                    </form>
+                        
 
                 </div>
             </div>
