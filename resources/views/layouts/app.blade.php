@@ -27,7 +27,6 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
-    {{-- <script src="/resources/js/app.js"></script> --}}
 
     @yield('scripts')
 </body>
