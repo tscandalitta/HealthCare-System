@@ -8,29 +8,21 @@ use DB;
 
 class PacienteController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+
     public function index()
     {
-        $pacientes = DB::table('pacientes')->get();
+        $pacientes = Paciente::all();
 
         return view('pacientes.index', compact('pacientes'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
+
     public function create()
     {
         return view('pacientes.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     */
+
     public function store(Request $request)
     {
         $this->validate(request(), [
@@ -42,11 +34,7 @@ class PacienteController extends Controller
         return redirect('/index');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Paciente  $paciente
-     */
+
     public function show($dni)
     {
         $paciente = Paciente::query()
@@ -66,24 +54,19 @@ class PacienteController extends Controller
         // GET pacientes/id/edit
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Paciente  $paciente
-     */
-    public function update(Request $request, Paciente $paciente)
+
+    public function update(Request $request)
     {
-        // PATCH /pacientes/id
+        $paciente = Paciente::find($request->id);
+
+        $paciente->fill(request(['nombre','apellido','dni','telefono','direccion','historia_clinica']));
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Paciente  $paciente
-     */
+    
     public function destroy(Paciente $paciente)
     {
-        // DELETE /pacientes/id
+        $paciente->delete();
+
+        return redirect()->home();
     }
 }
