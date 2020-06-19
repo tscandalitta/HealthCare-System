@@ -11,19 +11,22 @@ $(document).ready(function () {
     } );
 
     function buscarPaciente(dni) {
-        var url = "/pacientes/" + dni;
+        let url = "/pacientes/" + dni;
         $.get(url, function(data) {
-            mostrarInfoPaciente(data);
+            mostrarInfoPaciente(data[0]);
         });
     }
 
-    function mostrarInfoPaciente(datosJson) {
-        var paciente = datosJson[0];
+    function mostrarInfoPaciente(paciente) {
+
+        $("#form-edit").attr("action","/pacientes/" + paciente["id"] + "/hc");
+        $("#btn-modificar-datos").attr("href","/pacientes/" + paciente["id"]  + "/edit");
         $("#field-nombre").text(paciente["apellido"] + ", " + paciente["nombre"]);
         $("#field-id").text(paciente["id"]);
         $("#field-dni").text(paciente["dni"]);
         $("#field-direccion").text(paciente["direccion"]);
         $("#field-telefono").text(paciente["telefono"]);
         $("#field-historiaClinica").text(paciente["historia_clinica"]);
+        $("#field-obraSocial").text(paciente["obra_social_id"]);
     }
 });

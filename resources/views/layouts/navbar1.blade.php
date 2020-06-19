@@ -3,7 +3,7 @@
                 <a class="navbar-brand" href="/pacientes/index">
                     <img src="/assets/logo-fondo-blanco.png" alt="" style="max-width: 1.75em; height: auto; m-auto">
                 </a>
-                <a class="navbar-brand" href="{{ url('/') }}">
+                <a class="navbar-brand" href="{{ url('/index') }}">
                     {{ config('app.name', 'Laravel') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -15,7 +15,9 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url('pacientes/create') }}">{{ __('Crear paciente') }}</a>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->

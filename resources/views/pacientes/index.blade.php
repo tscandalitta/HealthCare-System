@@ -36,34 +36,41 @@
 
         <div class="col-lg-7">
             <div class="card" id="card-pacientes">
-                <div class="card-header">
-                    <label id="field-id" hidden></label>
-                    <div class="row">
-                        <div class="col">
+                <form id="form-edit" method="POST" action="">
+                    @method('PATCH')
+                    @csrf
+                    <div class="card-header">
+                        <label id="field-id" hidden></label>
+                        <div class="row">
+                            <div class="col">
 
-                            <h4 id="field-nombre"></h4>
-                            <label for="field-dni">DNI: </label>
-                            <label id="field-dni"></label>
+                                <h4 id="field-nombre"></h4>
+                                <label for="field-dni">DNI: </label>
+                                <label id="field-dni"></label>
 
-                        </div>
-                        <div class="col">
-                            <h6 id="field-telefono"></h6>
-                            <h6 id="field-direccion"></h6>
+                            </div>
+                            <div class="col">
+                                <h6 id="field-telefono"></h6>
+                                <h6 id="field-direccion"></h6>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="card-body">
-                    <label for="field-historiaClinica">Historia clínica</label>
-                    <textarea class="form-control mb-3" id="field-historiaClinica" rows="8"></textarea>
-                    <a href="#" class="btn btn-primary">Guardar HC</a>
-                    <form method="POST" action="/pacientes/42">
-                        @method('DELETE')
-                        @csrf
-                        <button type="submit">Borrar id 42</button>
-                    </form>
-                        
+                    <div class="card-body">
+                        <h6 id="field-obraSocial"></h6>
+                        <label for="field-historiaClinica">Historia clínica</label>
+                        <textarea class="form-control mb-3" id="field-historiaClinica" name="historia_clinica"
+                            rows="8"></textarea>
+                        <div class="row">
+                            <div class="col d-flex justify-content-between">
+                                <button type="submit" class="btn btn-primary">Guardar HC</button>
+                                <a href="{{ url('/index') }}" class="btn btn-primary" id="btn-modificar-datos">Modificar
+                                    datos</a>
+                            </div>
 
-                </div>
+                        </div>
+
+                    </div>
+                </form>
             </div>
         </div>
     </div>
@@ -73,5 +80,5 @@
 @section ('scripts')
 <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
-<script src="/js/table.js"></script>
+<script src="/js/index.js"></script>
 @endsection

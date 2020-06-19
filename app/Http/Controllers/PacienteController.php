@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Paciente;
+use App\ObraSocial;
+use App\Estudio;
 use Illuminate\Http\Request;
 use DB;
 
@@ -19,19 +21,37 @@ class PacienteController extends Controller
 
     public function create()
     {
-        return view('pacientes.create');
+        $obras_sociales = ObraSocial::all();
+        
+        return view('pacientes.create', compact('obras_sociales'));
     }
 
 
-    public function store(Request $request)
+    public function store()
     {
         $this->validate(request(), [
-            'dni' => 'unique:pacientes'
-        ]);
+            'dni' => 'unique:pacientes',
+            'nombre' => 'required',
+            'apellido' => 'required'
+        ]); 
 
-        Paciente::create(request(['nombre','apellido','dni','telefono','direccion','historia_clinica']));
+        $paciente = Paciente::create(request(['nombre','apellido','dni','telefono','direccion','obra_social_id','historia_clinica']));
 
-        return redirect('/index');
+        if(request()->hasFile('estudios')){
+
+            request()->validate([
+                'estudios' => 'file|image|max:5000',
+            ]);
+
+            $imagen = base64_encode(file_get_contents(request()->file('estudios')));
+            $srcImagen = "data:image/;base64, " . $imagen;
+
+            Estudio::create(['imagen' => $imagen, 'paciente_id' => $paciente->id]);
+        }
+
+        
+
+        return redirect()->home();
     }
 
 
@@ -44,22 +64,38 @@ class PacienteController extends Controller
         return $paciente;
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Paciente  $paciente
-     */
+    
     public function edit(Paciente $paciente)
     {
-        // GET pacientes/id/edit
+        $obras_sociales = ObraSocial::all();
+
+        return view('pacientes.edit', compact('paciente','obras_sociales'));
     }
 
 
-    public function update(Request $request)
+    public function update(Paciente $paciente)
     {
-        $paciente = Paciente::find($request->id);
+        $paciente->nombre = request('nombre');
+        $paciente->apellido = request('apellido');
+        $paciente->dni = request('dni');
+        $paciente->telefono = request('telefono');
+        $paciente->direccion = request('direccion');
+        $paciente->historia_clinica = request('historia_clinica');
+        $paciente->obra_social_id = request('obra_social_id');
 
-        $paciente->fill(request(['nombre','apellido','dni','telefono','direccion','historia_clinica']));
+        $paciente->save();
+
+        return redirect()->home();
+    }
+
+
+    public function updateHC(Paciente $paciente)
+    {
+        $paciente->historia_clinica = request('historia_clinica');
+        
+        $paciente->save();
+
+        return redirect()->home();
     }
 
     

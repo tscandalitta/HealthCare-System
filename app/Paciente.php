@@ -8,4 +8,9 @@ class Paciente extends Model
     {
        return $this->belongsTo(ObraSocial::class);
     }
+
+    public function estudios()
+    {
+        return $this->hasMany(Estudio::class);
+    }
 }

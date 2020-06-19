@@ -12,9 +12,13 @@ Route::get('/pacientes/create', 'PacienteController@create');
 
 Route::get('/pacientes/{dni}', 'PacienteController@show');
 
+Route::get('/pacientes/{paciente}/edit', 'PacienteController@edit');
+
 Route::post('/pacientes', 'PacienteController@store');
 
 Route::patch('/pacientes/{paciente}','PacienteController@update');
+
+Route::patch('/pacientes/{paciente}/hc','PacienteController@updateHC');
 
 Route::delete('/pacientes/{paciente}','PacienteController@destroy');
 

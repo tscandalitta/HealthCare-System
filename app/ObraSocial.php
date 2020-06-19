@@ -10,4 +10,9 @@ class ObraSocial extends Model
     {
         return $this->hasMany(Paciente::class);
     }
+
+    public function getNombreCompleto()
+    {
+        return $this->sigla . " - " . $this->nombre;
+    }
 }
