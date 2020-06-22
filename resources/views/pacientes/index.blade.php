@@ -64,9 +64,8 @@
                         <div class="row">
                             <div class="col d-flex justify-content-between">
                                 <button type="submit" class="btn btn-primary" disabled>Guardar HC</button>
-                                <a href="{{ url('/index') }}" class="btn btn-primary" id="btn-modificar-datos"
-                                    disabled>Modificar
-                                    datos</a>
+                                <a type="button" href="" class="btn btn-primary" id="btn-modificar-datos"
+                                    disabled>Modificar datos</a>
 
                             </div>
 
