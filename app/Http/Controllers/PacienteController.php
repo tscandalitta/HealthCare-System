@@ -38,18 +38,15 @@ class PacienteController extends Controller
         $paciente = Paciente::create(request(['nombre','apellido','dni','telefono','direccion','obra_social_id','historia_clinica']));
 
         if(request()->hasFile('estudios')){
-
+            
             request()->validate([
                 'estudios' => 'file|image|max:5000',
             ]);
 
             $imagen = base64_encode(file_get_contents(request()->file('estudios')));
             $srcImagen = "data:image/;base64, " . $imagen;
-
-            Estudio::create(['imagen' => $imagen, 'paciente_id' => $paciente->id]);
+            $paciente->estudios()->create(['imagen' => $srcImagen]);
         }
-
-        
 
         return redirect()->home();
     }
@@ -68,7 +65,6 @@ class PacienteController extends Controller
     public function edit(Paciente $paciente)
     {
         $obras_sociales = ObraSocial::all();
-
         return view('pacientes.edit', compact('paciente','obras_sociales'));
     }
 
@@ -84,6 +80,16 @@ class PacienteController extends Controller
         $paciente->obra_social_id = request('obra_social_id');
 
         $paciente->save();
+
+        if(request()->hasFile('estudios')){
+            request()->validate([
+                'estudios' => 'file|image|max:5000',
+            ]);
+
+            $imagen = base64_encode(file_get_contents(request()->file('estudios')));
+            $srcImagen = "data:image/;base64, " . $imagen;
+            $paciente->estudios()->create(['imagen' => $srcImagen]);
+        }
 
         return redirect()->home();
     }
@@ -101,6 +107,7 @@ class PacienteController extends Controller
     
     public function destroy(Paciente $paciente)
     {
+        $paciente->estudios()->delete();
         $paciente->delete();
 
         return redirect()->home();
