@@ -13,6 +13,8 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             ObraSocialSeeder::class,
+            RolesAndPermissionsSeeder::class,
+            UserSeeder::class,
         ]);
     }
 }
