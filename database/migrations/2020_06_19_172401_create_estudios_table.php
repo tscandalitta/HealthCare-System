@@ -15,7 +15,7 @@ class CreateEstudiosTable extends Migration
     {
         Schema::create('estudios', function (Blueprint $table) {
             $table->id();
-            $table->longText('imagen');
+            $table->longText('imagen')->unique();
             $table->integer('paciente_id');
             $table->timestamps();
         });
