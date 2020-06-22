@@ -36,42 +36,55 @@
 
         <div class="col-lg-7">
             <div class="card" id="card-pacientes">
-                <form id="form-edit" method="POST" action="">
-                    @method('PATCH')
-                    @csrf
-                    <div class="card-header">
-                        <label id="field-id" hidden></label>
-                        <div class="row">
-                            <div class="col">
 
-                                <h4 id="field-nombre"></h4>
-                                <label for="field-dni">DNI: </label>
-                                <label id="field-dni"></label>
+                <div class="card-header">
+                    <label id="field-id" hidden></label>
+                    <div class="row">
+                        <div class="col">
 
-                            </div>
-                            <div class="col">
-                                <h6 id="field-telefono"></h6>
-                                <h6 id="field-direccion"></h6>
-                            </div>
+                            <h4 id="field-nombre"></h4>
+                            <label for="field-dni">DNI: </label>
+                            <label id="field-dni"></label>
+
+                        </div>
+                        <div class="col">
+                            <h6 id="field-telefono"></h6>
+                            <h6 id="field-direccion"></h6>
                         </div>
                     </div>
-                    <div class="card-body">
+                </div>
+                <div class="card-body">
+                    <form id="form-edit" method="POST" action="">
+                        @method('PATCH')
+                        @csrf
                         <h6 id="field-obraSocial"></h6>
                         <label for="field-historiaClinica">Historia clínica</label>
                         <textarea class="form-control mb-3" id="field-historiaClinica" name="historia_clinica"
                             rows="8"></textarea>
                         <div class="row">
                             <div class="col d-flex justify-content-between">
-                                <button type="submit" class="btn btn-primary">Guardar HC</button>
-                                <a href="{{ url('/index') }}" class="btn btn-primary" id="btn-modificar-datos">Modificar
+                                <button type="submit" class="btn btn-primary" disabled>Guardar HC</button>
+                                <a href="{{ url('/index') }}" class="btn btn-primary" id="btn-modificar-datos"
+                                    disabled>Modificar
                                     datos</a>
+
                             </div>
 
                         </div>
-
+                    </form>
+                    <div class="row">
+                        <div class="col mt-2">
+                            <form id="form-delete" method="POST" action="">
+                                @method('DELETE')
+                                @csrf
+                                <button type="submit" class="btn btn-danger" disabled>Eliminar paciente</button>
+                            </form>
+                        </div>
                     </div>
-                </form>
+                </div>
+
             </div>
+            <img src="" alt="" id="img-paciente">
         </div>
     </div>
 </div>
