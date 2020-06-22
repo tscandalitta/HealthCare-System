@@ -66,7 +66,9 @@
 
             </div>
         </div>
+
         <hr>
+        
         <div class="form-group row">
             <label for="input-studios" class="col-lg-2 col-form-label">Adjuntar estudios</label>
             <div class="col-lg-10">
@@ -77,7 +79,7 @@
         <div class="form-group row">
             <div class="col d-flex justify-content-center">
                 <button type="submit" class="btn btn-primary mr-3">Guardar</button>
-                <button class="btn btn-outline-secondary" onclick="window.history.back()">Cancelar</button>
+                <button type="button" class="btn btn-outline-secondary" onclick="window.history.back()">Cancelar</button>
             </div>
         </div>
     </form>
