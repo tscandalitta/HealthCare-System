@@ -18,8 +18,9 @@ $(document).ready(function () {
     }
 
     function mostrarInfoPaciente(paciente) {
-
+        $('.btn').attr("disabled", false);
         $("#form-edit").attr("action","/pacientes/" + paciente["id"] + "/hc");
+        $("#form-delete").attr("action","/pacientes/" + paciente["id"]);
         $("#btn-modificar-datos").attr("href","/pacientes/" + paciente["id"]  + "/edit");
         $("#field-nombre").text(paciente["apellido"] + ", " + paciente["nombre"]);
         $("#field-id").text(paciente["id"]);
