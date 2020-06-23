@@ -10,21 +10,21 @@ class UserSeeder extends Seeder
         $medico = User::create([
             'name' => 'Doctor Damian', 
             'email' => 'damian@gmail.com',
-            'password' => 'medico123'
+            'password' => Hash::make('medico123'),
         ]);
         $medico->assignRole('medico');
 
         $admin = User::create([
             'name' => 'Administrador', 
             'email' => 'admin@gmail.com',
-            'password' => 'admin123'
+            'password' => Hash::make('admin123'),
         ]);
         $admin->assignRole('admin');
 
         $secretaria = User::create([
             'name' => 'Secretaria', 
             'email' => 'secretaria@gmail.com',
-            'password' => 'secretaria123'
+            'password' => Hash::make('secretaria123'),
         ]);
         $secretaria->assignRole('secretaria');
     }
