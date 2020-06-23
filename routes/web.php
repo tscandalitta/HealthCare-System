@@ -22,14 +22,14 @@ Route::group(['middleware' => 'can:delete pacientes'], function () {
     Route::delete('/pacientes/{paciente}','PacienteController@destroy');
 });
 
+Route::get('/admin', 'PacienteController@dashboard')->name('admin');
 
-Route::get('', function() {
-    return view('home');
-});
+Route::get('/', 'PacienteController@home');
+
+Route::get('/home', 'PacienteController@home');
 
 Auth::routes();
 
 Route::get('/prueba', function() {
     return view('layouts.prueba');
-    return view('home');
-});
+})->name('prueba');

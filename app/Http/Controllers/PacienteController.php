@@ -12,7 +12,7 @@ class PacienteController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth',['except' => 'home']);
     }
 
     public function index()
@@ -115,5 +115,15 @@ class PacienteController extends Controller
         $paciente->delete();
 
         return redirect()->home();
+    }
+
+    public function dashboard()
+    {
+        return view('admin.dashboard');
+    }
+
+    public function home()
+    {
+        return view('home');
     }
 }
