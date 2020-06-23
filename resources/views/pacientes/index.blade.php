@@ -71,6 +71,7 @@
 
                         </div>
                     </form>
+                    @can ('delete pacientes')
                     <div class="row">
                         <div class="col mt-2">
                             <form id="form-delete" method="POST" action="">
@@ -80,6 +81,7 @@
                             </form>
                         </div>
                     </div>
+                    @endcan
                 </div>
 
             </div>

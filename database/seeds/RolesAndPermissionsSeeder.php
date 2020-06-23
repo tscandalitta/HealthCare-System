@@ -11,7 +11,7 @@ class RolesAndPermissionsSeeder extends Seeder
         app()[\Spatie\Permission\PermissionRegistrar::class]->forgetCachedPermissions();
 
         Permission::create(['name' => 'create pacientes']);
-        Permission::create(['name' => 'edit pacientes']);
+        Permission::create(['name' => 'update pacientes']);
         Permission::create(['name' => 'delete pacientes']);
         Permission::create(['name' => 'view pacientes']);
         Permission::create(['name' => 'manage obras_sociales']);
@@ -19,7 +19,7 @@ class RolesAndPermissionsSeeder extends Seeder
         Role::create(['name' => 'medico'])
             ->givePermissionTo([
                 'create pacientes',
-                'edit pacientes',
+                'update pacientes',
                 'view pacientes',
                 'delete pacientes',
                 'manage obras_sociales'
@@ -28,7 +28,7 @@ class RolesAndPermissionsSeeder extends Seeder
         Role::create(['name' => 'secretaria'])
             ->givePermissionTo([
                 'create pacientes',
-                'edit pacientes',
+                'update pacientes',
                 'view pacientes',
                 'manage obras_sociales'
             ]);
