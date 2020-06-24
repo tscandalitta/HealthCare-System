@@ -22,14 +22,12 @@ class PacienteController extends Controller
         return view('pacientes.index', compact('pacientes'));
     }
 
-
     public function create()
     {
         $obras_sociales = ObraSocial::all();
         
         return view('pacientes.create', compact('obras_sociales'));
     }
-
 
     public function store()
     {
@@ -41,23 +39,26 @@ class PacienteController extends Controller
 
         $paciente = Paciente::create(request(['nombre','apellido','dni','telefono','direccion','obra_social_id','historia_clinica']));
 
+        self::storeImages($paciente);
+        
+        return redirect()->home();
+    }
+
+    private function storeImages($paciente)
+    {
         if(request()->hasFile('estudios')){
-            $estudios = request()->file('estudios');
 
             request()->validate([
                 'estudios.*' => 'file|image|max:5000',
             ]);
 
-            foreach($estudios as $estudio) {
+            foreach(request()->file('estudios') as $estudio) {
                 $imagen = base64_encode(file_get_contents($estudio));
                 $srcImagen = "data:image/;base64, " . $imagen;
                 $paciente->estudios()->create(['imagen' => $srcImagen]);
             }
         }
-
-        return redirect()->home();
     }
-
 
     public function show($dni)
     {
@@ -67,14 +68,12 @@ class PacienteController extends Controller
 
         return $paciente;
     }
-
     
     public function edit(Paciente $paciente)
     {
         $obras_sociales = ObraSocial::all();
         return view('pacientes.edit', compact('paciente','obras_sociales'));
     }
-
 
     public function update(Paciente $paciente)
     {
@@ -88,23 +87,10 @@ class PacienteController extends Controller
 
         $paciente->save();
 
-        if(request()->hasFile('estudios')){
-            $estudios = request()->file('estudios');
-
-            request()->validate([
-                'estudios.*' => 'file|image|max:5000',
-            ]);
-
-            foreach($estudios as $estudio) {
-                $imagen = base64_encode(file_get_contents($estudio));
-                $srcImagen = "data:image/;base64, " . $imagen;
-                $paciente->estudios()->create(['imagen' => $srcImagen]);
-            }
-        }
+        self::storeImages($paciente);
 
         return redirect()->home();
     }
-
 
     public function updateHC(Paciente $paciente)
     {
@@ -115,7 +101,6 @@ class PacienteController extends Controller
         return redirect()->home();
     }
 
-    
     public function destroy(Paciente $paciente)
     {
         $paciente->estudios()->delete();
