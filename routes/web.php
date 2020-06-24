@@ -24,6 +24,8 @@ Route::group(['middleware' => 'can:delete pacientes'], function () {
 
 Route::get('/admin', 'PacienteController@dashboard')->name('admin');
 
+Route::get('/estadisticas','ObraSocialController@index');
+
 Route::get('/', 'PacienteController@home');
 
 Route::get('/home', 'PacienteController@home');

@@ -18,6 +18,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url('pacientes/create') }}">{{ __('Crear paciente') }}</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url('estadisticas') }}">{{ __('Estadísticas') }}</a>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
