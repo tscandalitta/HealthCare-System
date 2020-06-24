@@ -72,7 +72,7 @@
         <div class="form-group row">
             <label for="input-studios" class="col-lg-2 col-form-label">Adjuntar estudios</label>
             <div class="col-lg-10">
-                <input type="file" class="form-control-file" id="input-estudios" name="estudios" multiple>
+                <input type="file" class="form-control-file" id="input-estudios" name="estudios[]" multiple>
             </div>
         </div>
 

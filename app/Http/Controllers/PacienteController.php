@@ -42,14 +42,17 @@ class PacienteController extends Controller
         $paciente = Paciente::create(request(['nombre','apellido','dni','telefono','direccion','obra_social_id','historia_clinica']));
 
         if(request()->hasFile('estudios')){
-            
+            $estudios = request()->file('estudios');
+
             request()->validate([
-                'estudios' => 'file|image|max:5000',
+                'estudios.*' => 'file|image|max:5000',
             ]);
 
-            $imagen = base64_encode(file_get_contents(request()->file('estudios')));
-            $srcImagen = "data:image/;base64, " . $imagen;
-            $paciente->estudios()->create(['imagen' => $srcImagen]);
+            foreach($estudios as $estudio) {
+                $imagen = base64_encode(file_get_contents($estudio));
+                $srcImagen = "data:image/;base64, " . $imagen;
+                $paciente->estudios()->create(['imagen' => $srcImagen]);
+            }
         }
 
         return redirect()->home();
@@ -86,13 +89,17 @@ class PacienteController extends Controller
         $paciente->save();
 
         if(request()->hasFile('estudios')){
+            $estudios = request()->file('estudios');
+
             request()->validate([
-                'estudios' => 'file|image|max:5000',
+                'estudios.*' => 'file|image|max:5000',
             ]);
 
-            $imagen = base64_encode(file_get_contents(request()->file('estudios')));
-            $srcImagen = "data:image/;base64, " . $imagen;
-            $paciente->estudios()->create(['imagen' => $srcImagen]);
+            foreach($estudios as $estudio) {
+                $imagen = base64_encode(file_get_contents($estudio));
+                $srcImagen = "data:image/;base64, " . $imagen;
+                $paciente->estudios()->create(['imagen' => $srcImagen]);
+            }
         }
 
         return redirect()->home();
