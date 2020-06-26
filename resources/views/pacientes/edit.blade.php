@@ -5,6 +5,7 @@
 
 @section ('custom-css')
 <link rel="stylesheet" href="/css/magnific-popup.min.css">
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet"/>
 @endsection
 
 @section ('content')
@@ -58,13 +59,15 @@
         <div class="form-group row">
             <label for="input-obraSocial" class="col-lg-1 col-form-label">Obra social</label>
             <div class="col-lg-11">
-                <input class="form-control" list="obras-sociales" id="input-obraSocial" name="obra_social_id" 
-                    value="@if (isset($paciente->obraSocial)){{$paciente->obraSocial->sigla}} {{$paciente->obraSocial->nombre }}@endif">
-                <datalist id="obras-sociales">
+                <select class="form-control" id="input-obraSocial" name="obra_social_id">
                     @foreach ($obras_sociales as $obra_social)
-                    <option value="{{ $obra_social->nombreCompleto }}">
-                        @endforeach
-                </datalist>
+                    <option value="{{ $obra_social->id }}"
+                        @if($obra_social->id == $paciente->obraSocial->id)
+                            selected="selected"
+                        @endif
+                    >{{$obra_social->sigla}} - {{$obra_social->nombre}}</option>
+                    @endforeach
+                </select>
             </div>
         </div>
 
@@ -116,7 +119,8 @@
 @endsection
 
 @section ('scripts')
-
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+<script src="/js/create.js"></script>
 <script src="/js/magnific-popup.js"></script>
 <script src="/js/gallery.js"></script>
 

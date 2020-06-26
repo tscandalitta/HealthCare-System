@@ -2,6 +2,10 @@
 
 @section ('title', 'Añadir paciente')
 
+@section ('custom-css')
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet"/>
+@endsection
+
 @section ('content')
 <div class="container">
     <form method="POST" action="/pacientes" enctype="multipart/form-data">
@@ -49,13 +53,11 @@
         <div class="form-group row">
             <label for="input-obraSocial" class="col-lg-1 col-form-label">Obra social</label>
             <div class="col-lg-11">
-                <input type="search" class="form-control" list="obras-sociales" id="input-obraSocial"
-                    name="obra_social_id">
-                <datalist id="obras-sociales">
+                <select class="form-control" id="input-obraSocial" name="obra_social_id">
                     @foreach ($obras_sociales as $obra_social)
-                    <option value="{{ $obra_social->sigla }} - {{$obra_social->nombre}}">
-                        @endforeach
-                </datalist>
+                    <option value="{{ $obra_social->id }}">{{ $obra_social->sigla }} - {{$obra_social->nombre}}</option>
+                    @endforeach
+                </select>
             </div>
         </div>
 
@@ -68,7 +70,7 @@
         </div>
 
         <hr>
-        
+
         <div class="form-group row">
             <label for="input-studios" class="col-lg-2 col-form-label">Adjuntar estudios</label>
             <div class="col-lg-10">
@@ -79,7 +81,8 @@
         <div class="form-group row">
             <div class="col d-flex justify-content-center">
                 <button type="submit" class="btn btn-primary mr-3">Guardar</button>
-                <button type="button" class="btn btn-outline-secondary" onclick="window.history.back()">Cancelar</button>
+                <button type="button" class="btn btn-outline-secondary"
+                    onclick="window.history.back()">Cancelar</button>
             </div>
         </div>
     </form>
@@ -95,4 +98,9 @@
     @endif
 
 </div>
+@endsection
+
+@section ('scripts')
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+<script src="/js/create.js"></script>
 @endsection
