@@ -2,9 +2,14 @@
     width: 3em;
     height: 3em;
     border-radius: 50%;
-    border: 2px solid;
+    border: 3px solid gray;
     font-size: 3em;
     line-height: 3em;
     text-align: center;
-    background: white
-  }
+    background: white;
+    margin: 0 auto;
+}
+
+.label-info{
+    font-size: 2em;
+}
