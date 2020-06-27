@@ -5,7 +5,7 @@
 
 @section ('custom-css')
 <link rel="stylesheet" href="/css/magnific-popup.min.css">
-<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
 @endsection
 
 @section ('content')
@@ -14,77 +14,63 @@
         @method('PATCH')
         @csrf
 
-        <div class="form-group row">
-            <label for="input-nombre" class="col-lg-1 col-form-label">Nombre/s</label>
-            <div class="col-lg-11">
+        <div class="form-row">
+            <div class="col-md-6 mb-3">
+                <label for="input-nombre">Nombre/s</label>
                 <input type="text" class="form-control" id="input-nombre" name="nombre" value="{{ $paciente->nombre }}"
                     required>
             </div>
-        </div>
-        <div class="form-group row">
-            <label for="input-apellido" class="col-lg-1 col-form-label">Apellido/s</label>
-            <div class="col-lg-11">
+            <div class="col-md-6 mb-3">
+                <label for="input-apellido">Apellido/s</label>
                 <input type="text" class="form-control" id="input-apellido" name="apellido"
                     value="{{ $paciente->apellido }}" required>
-
             </div>
         </div>
 
-        <div class="form-group row">
-            <label for="input-dni" class="col-lg-1 col-form-label">DNI</label>
-            <div class="col-lg-11">
-                <input type="text" class="form-control" id="input-dni" name="dni" value="{{ $paciente->dni }}">
-
-            </div>
-        </div>
-
-        <div class="form-group row">
-            <label for="input-direccion" class="col-lg-1 col-form-label">Dirección</label>
-            <div class="col-lg-11">
+        <div class="form-row">
+            <div class="col-md-6 mb-3">
+                <label for="input-direccion">Dirección</label>
                 <input type="text" class="form-control" id="input-direccion" name="direccion"
                     value="{{ $paciente->direccion }}">
-
             </div>
-        </div>
-
-        <div class="form-group row">
-            <label for="input-telefono" class="col-lg-1 col-form-label">Teléfono</label>
-            <div class="col-lg-11">
+            <div class="col-md-3 col-sm-6 mb-3">
+                <label for="input-dni">DNI</label>
+                <input type="text" class="form-control" id="input-dni" name="dni" value="{{ $paciente->dni }}">
+            </div>
+            <div class="col-md-3 col-sm-6 mb-3">
+                <label for="input-telefono">Teléfono</label>
                 <input type="text" class="form-control" id="input-telefono" name="telefono"
                     value="{{ $paciente->telefono }}">
-
             </div>
         </div>
 
-        <div class="form-group row">
-            <label for="input-obraSocial" class="col-lg-1 col-form-label">Obra social</label>
-            <div class="col-lg-11">
-                <select class="form-control" id="input-obraSocial" name="obra_social_id">
+        <div class="form-row">
+            <div class="col mb-3">
+                <label for="input-obraSocial">Obra social</label>
+                <select class="form-control" id="input-obraSocial" name="obra_social_id" style="width: 100%">
                     @foreach ($obras_sociales as $obra_social)
-                    <option value="{{ $obra_social->id }}"
-                        @if($obra_social->id == $paciente->obraSocial->id)
-                            selected="selected"
+                    <option value="{{ $obra_social->id }}" @if($obra_social->id == $paciente->obraSocial->id)
+                        selected="selected"
                         @endif
-                    >{{$obra_social->sigla}} - {{$obra_social->nombre}}</option>
+                        >{{$obra_social->sigla}} - {{$obra_social->nombre}}</option>
                     @endforeach
                 </select>
             </div>
         </div>
 
-        <div class="form-group row">
-            <label for="input-historiaClinica" class="col-lg-1 col-form-label">Historia clínica</label>
-            <div class="col-lg-11">
+        <div class="form-row">
+            <div class="col mb-3">
+                <label for="input-historiaClinica">Historia clínica</label>
                 <textarea class="form-control" id="input-historiaClinica" name="historia_clinica"
                     rows="4">{{ $paciente->historia_clinica }}</textarea>
-
             </div>
         </div>
 
         <hr>
 
         <div class="form-group row">
-            <label for="input-studios" class="col-lg-2 col-form-label">Adjuntar estudios</label>
-            <div class="col-lg-10">
+            <label for="input-studios" class="col-md-2 col-form-label">Adjuntar estudios</label>
+            <div class="col-md-8">
                 <input type="file" class="form-control-file" id="input-estudios" name="estudios[]" multiple>
             </div>
         </div>
@@ -113,7 +99,7 @@
                 <a href="{{$estudio->imagen}}" title=""><img src="{{$estudio->imagen}}" height="100"></a>
             @endforeach
         @endif
-    </div>
+    </div> 
 
 </div>
 @endsection

@@ -66,6 +66,9 @@ class PacienteController extends Controller
                         ->where('dni', 'LIKE', $dni)
                         ->get();
 
+        $obra_social = $paciente->first()->obraSocial;
+        $estudios = $paciente->first()->estudios;
+
         return $paciente;
     }
     
