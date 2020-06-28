@@ -28,7 +28,8 @@ $(document).ready(function () {
         $("#field-direccion").text(paciente["direccion"]);
         $("#field-telefono").text(paciente["telefono"]);
         $("#field-historiaClinica").text(paciente["historia_clinica"]);
-        $("#field-obraSocial").text(paciente["obra_social"]["sigla"] + " - " + paciente["obra_social"]["nombre"]);
+        if(paciente["obra_social"] != null)
+            $("#field-obraSocial").text(paciente["obra_social"]["sigla"] + " - " + paciente["obra_social"]["nombre"]);
         mostrarEstudios(paciente["estudios"]);
     }
 
