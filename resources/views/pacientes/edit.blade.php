@@ -93,14 +93,6 @@
     </div>
     @endif
 
-    <div class="popup-gallery">
-        @if (count($paciente->estudios) > 0 )
-            @foreach ($paciente->estudios as $estudio)
-                <a href="{{$estudio->imagen}}" title=""><img src="{{$estudio->imagen}}" height="100"></a>
-            @endforeach
-        @endif
-    </div> 
-
 </div>
 @endsection
 
