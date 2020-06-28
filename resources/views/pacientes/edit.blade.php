@@ -46,6 +46,14 @@
 
         <div class="form-row">
             <div class="col mb-3">
+                <label for="input-historiaClinica">Historia clínica</label>
+                <textarea class="form-control" id="input-historiaClinica" name="historia_clinica"
+                    rows="4">{{ $paciente->historia_clinica }}</textarea>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="col-sm-6 mb-3">
                 <label for="input-obraSocial">Obra social</label>
                 <select class="form-control" id="input-obraSocial" name="obra_social_id" style="width: 100%">
                     @if(!isset($paciente->obraSocial))
@@ -62,24 +70,13 @@
                     @endforeach
                 </select>
             </div>
-        </div>
-
-        <div class="form-row">
-            <div class="col mb-3">
-                <label for="input-historiaClinica">Historia clínica</label>
-                <textarea class="form-control" id="input-historiaClinica" name="historia_clinica"
-                    rows="4">{{ $paciente->historia_clinica }}</textarea>
+            <div class="col-sm-6 mb-3">
+                <label for="input-studios">Adjuntar estudios</label>
+                <input type="file" class="form-control-file" id="input-estudios" name="estudios[]" multiple>
             </div>
         </div>
 
         <hr>
-
-        <div class="form-group row">
-            <label for="input-studios" class="col-md-2 col-form-label">Adjuntar estudios</label>
-            <div class="col-md-8">
-                <input type="file" class="form-control-file" id="input-estudios" name="estudios[]" multiple>
-            </div>
-        </div>
 
         <div class="form-group row">
             <div class="col d-flex justify-content-center">
