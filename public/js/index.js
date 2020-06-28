@@ -40,6 +40,7 @@ $(document).ready(function () {
             var imagen = document.createElement("img");
             imagen.setAttribute('src',img["imagen"]);
             imagen.setAttribute('height',100);
+            imagen.setAttribute('class','m-1');
             estudio.appendChild(imagen);
             $('#div-estudios').append(estudio);
         });
