@@ -5,7 +5,7 @@
 @section ('custom-css')
 <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css">
 <link rel="stylesheet" href="/css/magnific-popup.min.css">
-<link rel="stylesheet" href="/css/table.css">
+<link rel="stylesheet" href="/css/index.css">
 @endsection
 
 @section ('content')
@@ -36,7 +36,7 @@
         </div>
 
         <div class="col-lg-7">
-            <div class="card" id="card-pacientes">
+            <div class="card mb-2" id="card-pacientes">
 
                 <div class="card-header">
                     <label id="field-id" hidden></label>
@@ -62,7 +62,7 @@
                     <form id="form-edit" method="POST" action="">
                         @method('PATCH')
                         @csrf
-                        
+
                         <label for="field-historiaClinica">Historia clínica</label>
                         <textarea class="form-control mb-3" id="field-historiaClinica" name="historia_clinica"
                             rows="8"></textarea>
@@ -90,11 +90,11 @@
                 </div>
 
             </div>
-            
+            <div class="card">
                 <div class="popup-gallery mt-3" id="div-estudios">
                 </div>
-            
-            
+            </div>
+
         </div>
     </div>
 </div>
