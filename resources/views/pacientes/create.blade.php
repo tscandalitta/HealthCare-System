@@ -38,17 +38,6 @@
             </div>
         </div>
 
-        <div class="form-row">
-            <div class="col mb-3">
-                <label for="input-obraSocial">Obra social</label>
-                <select class="form-control" id="input-obraSocial" name="obra_social_id" style="width: 100%">
-                    <option value="" selected="selected">Sin obra social</option>
-                    @foreach ($obras_sociales as $obra_social)
-                    <option value="{{ $obra_social->id }}">{{$obra_social->sigla}} - {{$obra_social->nombre}}</option>
-                    @endforeach
-                </select>
-            </div>
-        </div>
 
         <div class="form-row">
             <div class="col mb-3">
@@ -58,14 +47,27 @@
             </div>
         </div>
 
-        <hr>
-
-        <div class="form-group row">
-            <label for="input-studios" class="col-md-2 col-form-label">Adjuntar estudios</label>
-            <div class="col-md-8">
+        <div class="form-row">
+            <div class="col-sm-6 mb-3">
+                <label for="input-obraSocial">Obra social</label>
+                <select class="form-control" id="input-obraSocial" name="obra_social_id" style="width: 100%">
+                    <option value="" selected="selected">Sin obra social</option>
+                    @foreach ($obras_sociales as $obra_social)
+                    <option value="{{ $obra_social->id }}">{{$obra_social->sigla}} - {{$obra_social->nombre}}</option>
+                    @endforeach
+                </select>
+            </div>
+            <div class="col-sm-6 mb-3">
+                <label for="input-studios">Adjuntar estudios</label>
                 <input type="file" class="form-control-file" id="input-estudios" name="estudios[]" multiple>
             </div>
         </div>
+
+      
+
+        <hr>
+
+        
 
         <div class="form-group row">
             <div class="col d-flex justify-content-center">
