@@ -76,17 +76,7 @@
 
                         </div>
                     </form>
-                    @can ('delete pacientes')
-                    <div class="row">
-                        <div class="col mt-2">
-                            <form id="form-delete" method="POST" action="">
-                                @method('DELETE')
-                                @csrf
-                                <button type="submit" class="btn btn-danger" disabled>Eliminar paciente</button>
-                            </form>
-                        </div>
-                    </div>
-                    @endcan
+                    
                 </div>
 
             </div>

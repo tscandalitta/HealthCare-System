@@ -48,9 +48,15 @@
             <div class="col mb-3">
                 <label for="input-obraSocial">Obra social</label>
                 <select class="form-control" id="input-obraSocial" name="obra_social_id" style="width: 100%">
+                    @if(!isset($paciente->obraSocial))
+                    <option value="" selected="selected">Sin obra social</option>
+                    @endif
                     @foreach ($obras_sociales as $obra_social)
-                    <option value="{{ $obra_social->id }}" @if($obra_social->id == $paciente->obraSocial->id)
-                        selected="selected"
+                    <option value="{{ $obra_social->id }}"
+                        @if(isset($paciente->obraSocial))
+                            @if($obra_social->id == $paciente->obraSocial->id)
+                                selected="selected"
+                            @endif
                         @endif
                         >{{$obra_social->sigla}} - {{$obra_social->nombre}}</option>
                     @endforeach
@@ -82,6 +88,17 @@
             </div>
         </div>
     </form>
+    @can ('delete pacientes')
+                    <div class="row">
+                        <div class="col mt-2">
+                            <form id="form-delete" method="POST" action="/pacientes/{{$paciente->id}}">
+                                @method('DELETE')
+                                @csrf
+                                <button type="submit" class="btn btn-danger">Eliminar paciente</button>
+                            </form>
+                        </div>
+                    </div>
+    @endcan
 
     @if ($errors->any())
     <div class="alert alert-danger">
