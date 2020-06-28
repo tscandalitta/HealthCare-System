@@ -1,8 +1,8 @@
 <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="/pacientes/index">
-                    <img src="/assets/logo-fondo-blanco.png" alt="" style="max-width: 1.75em; height: auto; m-auto">
-                </a>
+                
+                <img class="mx-2"src="/assets/logo-fondo-blanco.png" alt="" style="max-width: 2em; height: auto;">
+                
                 <a class="navbar-brand" href="{{ url('/index') }}">
                     {{ config('app.name', 'Laravel') }}
                 </a>
@@ -30,11 +30,6 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('login') }}">{{ __('Iniciar sesión') }}</a>
                         </li>
-                        @if (Route::has('register'))
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">{{ __('Registrase') }}</a>
-                        </li>
-                        @endif
                         @else
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
