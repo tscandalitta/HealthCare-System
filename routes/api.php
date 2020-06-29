@@ -2,7 +2,8 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Resources\Paciente as PacienteResource;
+use App\Paciente;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -16,4 +17,14 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+
+
+Route::get('/pacientes/{dni}', function ($dni) {
+    return new PacienteResource(
+        Paciente::query()
+            ->where('dni', 'LIKE', $dni)
+            ->first()
+        );
 });
