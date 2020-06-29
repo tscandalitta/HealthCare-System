@@ -3,6 +3,7 @@
 namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
+use App\Http\Resources\Estudio;
 
 class Paciente extends JsonResource
 {
@@ -16,8 +17,8 @@ class Paciente extends JsonResource
             'telefono' => $this->telefono,
             'dni' => $this->dni,
             'historia_clinica' => $this->historia_clinica,
-            //'estudios' => EstudioResource::collection($this->estudios),
-            //obraSocial
+            'estudios' => Estudio::collection($this->estudios),
+            'obra_social' => $this->obraSocial->getNombreCompleto(),
         ];
     }
 }
