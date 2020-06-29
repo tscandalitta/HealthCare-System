@@ -14,6 +14,7 @@ $(document).ready(function () {
         let url = "/pacientes/" + dni;
         $.get(url, function (data) {
             mostrarInfoPaciente(data[0]);
+            $('#card-paciente').removeAttr('hidden');
         });
     }
 
@@ -27,7 +28,7 @@ $(document).ready(function () {
         $("#field-dni").text(paciente["dni"]);
         $("#field-direccion").text(paciente["direccion"]);
         $("#field-telefono").text(paciente["telefono"]);
-        $("#field-historiaClinica").text(paciente["historia_clinica"]);
+        $("#field-historiaClinica").val(paciente["historia_clinica"]);
         if(paciente["obra_social"] != null)
             $("#field-obraSocial").text(paciente["obra_social"]["sigla"] + " - " + paciente["obra_social"]["nombre"]);
         mostrarEstudios(paciente["estudios"]);
@@ -45,6 +46,9 @@ $(document).ready(function () {
             estudio.appendChild(imagen);
             $('#div-estudios').append(estudio);
         });
-
+        if(paciente.length > 0)
+            $('#card-estudios').removeAttr('hidden');
+        else
+            $('#card-estudios').attr('hidden','hidden');
     }
 });

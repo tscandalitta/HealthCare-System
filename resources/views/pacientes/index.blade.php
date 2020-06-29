@@ -36,25 +36,35 @@
         </div>
 
         <div class="col-lg-7">
-            <div class="card mb-2" id="card-pacientes">
+            <div class="card mb-2" id="card-paciente" hidden>
 
                 <div class="card-header">
                     <label id="field-id" hidden></label>
                     <div class="row">
                         <div class="col">
-
                             <h4 id="field-nombre"></h4>
-                            <label for="field-dni">DNI: </label>
-                            <label id="field-dni"></label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-5">
+                            <div class="d-flex mb-2">
+                                <label for="field-dni"><strong>DNI: </strong></label>
+                                <label id="field-dni"></label>    
+                            </div>
                             <h6 id="field-obraSocial"></h6>
 
 
                         </div>
-                        <div class="col">
-                            <label for="field-dni">Tel: </label>
-                            <h6 id="field-telefono"></h6>
-                            <label for="field-dni">Direccion: </label>
-                            <h6 id="field-direccion"></h6>
+                        <div class="col-7">
+                            <div class="d-flex">
+                                <label for="field-dni"><strong>Teléfono: </strong></label>
+                                <p id="field-telefono"></p>
+                            </div>
+                            <div class="d-flex">
+                                <label for="field-dni"><strong>Direccion: </strong></label>
+                                <p id="field-direccion"></p>
+    
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -62,10 +72,8 @@
                     <form id="form-edit" method="POST" action="">
                         @method('PATCH')
                         @csrf
-
-                        <label for="field-historiaClinica">Historia clínica</label>
                         <textarea class="form-control mb-3" id="field-historiaClinica" name="historia_clinica"
-                            rows="8"></textarea>
+                            rows="8" placeholder="Historia clínica"></textarea>
                         <div class="row">
                             <div class="col d-flex justify-content-between">
                                 <button type="submit" class="btn btn-primary" disabled>Guardar HC</button>
@@ -80,8 +88,8 @@
                 </div>
 
             </div>
-            <div class="card">
-                <div class="popup-gallery mt-3" id="div-estudios">
+            <div class="card" id="card-estudios" hidden>
+                <div class="popup-gallery" id="div-estudios">
                 </div>
             </div>
 
