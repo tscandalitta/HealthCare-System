@@ -32,6 +32,3 @@ Route::get('/home', 'PacienteController@home');
 
 Auth::routes();
 
-Route::get('/prueba', function() {
-    return view('layouts.prueba');
-})->name('prueba');
