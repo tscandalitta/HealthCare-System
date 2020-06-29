@@ -45,24 +45,28 @@
                             <h4 id="field-nombre"></h4>
                         </div>
                     </div>
+                    <hr class="mt-0 mb-2">
                     <div class="row">
                         <div class="col-5">
-                            <div class="d-flex mb-2">
-                                <label for="field-dni"><strong>DNI: </strong></label>
+                            <div class="d-flex">
+                                <label class="mr-1" for="field-dni"><strong>DNI:</strong></label>
                                 <label id="field-dni"></label>    
                             </div>
-                            <h6 id="field-obraSocial"></h6>
+                            <div class="d-flex">
+                                <label class="mr-1" for="field-obraSocial"><strong>OS:</strong></label>
+                                <label id="field-obraSocial"></label>
+                            </div>
 
 
                         </div>
                         <div class="col-7">
                             <div class="d-flex">
-                                <label for="field-dni"><strong>Teléfono: </strong></label>
-                                <p id="field-telefono"></p>
+                                <label class="mr-1" for="field-dni"><strong>Teléfono:</strong></label>
+                                <label id="field-telefono"></label>
                             </div>
                             <div class="d-flex">
-                                <label for="field-dni"><strong>Direccion: </strong></label>
-                                <p id="field-direccion"></p>
+                                <label class="mr-1" for="field-dni"><strong>Direccion:</strong></label>
+                                <label id="field-direccion"></label>
     
                             </div>
                         </div>
