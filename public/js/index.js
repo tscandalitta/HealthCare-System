@@ -15,6 +15,8 @@ $(document).ready(function () {
         $.get(url, function (data) {
             mostrarInfoPaciente(data[0]);
             $('#card-paciente').removeAttr('hidden');
+            $('#col-card-paciente').removeClass('align-self-center');
+            $('#cartel-inicial').attr('hidden','hidden');
         });
     }
 

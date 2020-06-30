@@ -12,7 +12,7 @@
 <div class="container-fluid">
 
     <div class="row">
-        <div class="col-lg-5">
+        <div class="col-md-5">
             <div class="table-responsive">
                 <table id="tabla-pacientes" class="table table-hover table-bordered">
                     <thead>
@@ -35,7 +35,10 @@
             </div>
         </div>
 
-        <div class="col-lg-7">
+        <div id="col-card-paciente" class="col-md-7 align-self-center">
+            <div id="cartel-inicial" class="text-center">
+                <p>Seleccione un paciente de la lista</p>
+            </div>
             <div class="card mb-2" id="card-paciente" hidden>
 
                 <div class="card-header">

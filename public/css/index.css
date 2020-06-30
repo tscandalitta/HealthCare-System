@@ -11,3 +11,8 @@ table {
     border: 1px solid rgba(0, 0, 0, 0.125);
     border-radius: 0.25rem;
 }
+
+#cartel-inicial{
+    font-size: 3em; 
+    color:rgba(0, 0, 0, 0.75);
+}
