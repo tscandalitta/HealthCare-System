@@ -61,7 +61,7 @@
                         @if($obra_social->id == $paciente->obraSocial->id)
                             selected="selected"
                         @endif
-                    >{{$obra_social->sigla}} - {{$obra_social->nombre}}</option>
+                    >{{$obra_social->getNombreCompleto()}}</option>
                     @endforeach
                 </select>
             </div>

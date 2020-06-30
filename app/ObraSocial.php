@@ -13,6 +13,9 @@ class ObraSocial extends Model
 
     public function getNombreCompleto()
     {
-        return $this->sigla . " - " . $this->nombre;
+        if($this->sigla == null)
+            return $this->nombre;
+        else 
+            return $this->sigla . " - " . $this->nombre;
     }
 }

@@ -56,7 +56,7 @@
                         @if($obra_social->sigla == null)
                             selected="selected"
                         @endif
-                    >{{$obra_social->sigla}} - {{$obra_social->nombre}}</option>
+                    >{{$obra_social->getNombreCompleto()}}</option>
                     @endforeach
                 </select>
             </div>
