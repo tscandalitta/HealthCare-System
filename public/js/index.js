@@ -31,8 +31,15 @@ $(document).ready(function () {
         $("#field-direccion").text(paciente["direccion"]);
         $("#field-telefono").text(paciente["telefono"]);
         $("#field-historiaClinica").val(paciente["historia_clinica"]);
-        if(paciente["obra_social"] != null)
-            $("#field-obraSocial").text(paciente["obra_social"]["sigla"] + " - " + paciente["obra_social"]["nombre"]);
+
+        if(paciente["obra_social"] != null) {
+            let nombre;
+            if(paciente["obra_social"]["sigla"] != null)
+                nombre = paciente["obra_social"]["sigla"] + " - " + paciente["obra_social"]["nombre"];
+            else
+                nombre = paciente["obra_social"]["nombre"];
+            $("#field-obraSocial").text(nombre);
+        }
         mostrarEstudios(paciente["estudios"]);
     }
 
