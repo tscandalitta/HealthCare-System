@@ -51,9 +51,12 @@
             <div class="col-sm-6 mb-3">
                 <label for="input-obraSocial">Obra social</label>
                 <select class="form-control" id="input-obraSocial" name="obra_social_id" style="width: 100%">
-                    <option value="" selected="selected">Sin obra social</option>
                     @foreach ($obras_sociales as $obra_social)
-                    <option value="{{ $obra_social->id }}">{{$obra_social->sigla}} - {{$obra_social->nombre}}</option>
+                    <option value="{{ $obra_social->id }}" 
+                        @if($obra_social->sigla == null)
+                            selected="selected"
+                        @endif
+                    >{{$obra_social->sigla}} - {{$obra_social->nombre}}</option>
                     @endforeach
                 </select>
             </div>
