@@ -15,26 +15,26 @@
         <div class="form-row">
             <div class="col-md-6 mb-3">
                 <label for="input-nombre">Nombre/s</label>
-                <input type="text" class="form-control" id="input-nombre" name="nombre" required>
+                <input type="text" class="form-control" id="input-nombre" name="nombre" value="{{ old('nombre') }}" required>
             </div>
             <div class="col-md-6 mb-3">
                 <label for="input-apellido">Apellido/s</label>
-                <input type="text" class="form-control" id="input-apellido" name="apellido" required>
+                <input type="text" class="form-control" id="input-apellido" name="apellido" value="{{ old('apellido') }}" required>
             </div>
         </div>
 
         <div class="form-row">
             <div class="col-md-6 mb-3">
                 <label for="input-direccion">Dirección</label>
-                <input type="text" class="form-control" id="input-direccion" name="direccion">
+                <input type="text" class="form-control" id="input-direccion" name="direccion" value="{{ old('direccion') }}" >
             </div>
             <div class="col-md-3 col-sm-6 mb-3">
                 <label for="input-dni">DNI</label>
-                <input type="text" class="form-control" id="input-dni" name="dni">
+                <input type="text" class="form-control" id="input-dni" name="dni" value="{{ old('dni') }}" >
             </div>
             <div class="col-md-3 col-sm-6 mb-3">
                 <label for="input-telefono">Teléfono</label>
-                <input type="text" class="form-control" id="input-telefono" name="telefono">
+                <input type="text" class="form-control" id="input-telefono" name="telefono" value="{{ old('telefono') }}" >
             </div>
         </div>
 
@@ -43,7 +43,7 @@
             <div class="col mb-3">
                 <label for="input-historiaClinica">Historia clínica</label>
                 <textarea class="form-control" id="input-historiaClinica" name="historia_clinica"
-                    rows="4"></textarea>
+                    rows="4">{{ old('historia_clinica') }}</textarea>
             </div>
         </div>
 
