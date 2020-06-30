@@ -3,6 +3,7 @@
 namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
+use App\Http\Resources\Paciente;
 
 class ObraSocial extends JsonResource
 {
@@ -12,7 +13,7 @@ class ObraSocial extends JsonResource
         return [
             'sigla' => $this->sigla,
             'nombre' => $this->nombre,
-            //'pacientes' => PacienteResource::collection($this->pacientes),
+            'pacientes' => Paciente::collection($this->pacientes),
         ];
     }
 }
