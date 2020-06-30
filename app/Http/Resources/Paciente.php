@@ -18,7 +18,7 @@ class Paciente extends JsonResource
             'dni' => $this->dni,
             'historia_clinica' => $this->historia_clinica,
             'estudios' => Estudio::collection($this->estudios),
-            'obra_social' => $this->obraSocial->getNombreCompleto(),
+            'obra_social' => $this->obraSocial->getNombreCompleto()
         ];
     }
 }
