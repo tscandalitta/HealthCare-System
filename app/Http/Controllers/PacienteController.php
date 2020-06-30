@@ -80,6 +80,12 @@ class PacienteController extends Controller
 
     public function update(Paciente $paciente)
     {
+        $this->validate(request(), [
+            'dni' => 'unique:pacientes',
+            'nombre' => 'required',
+            'apellido' => 'required'
+        ]);
+        
         $paciente->nombre = request('nombre');
         $paciente->apellido = request('apellido');
         $paciente->dni = request('dni');
