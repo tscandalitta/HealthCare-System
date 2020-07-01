@@ -19,9 +19,13 @@ use App\ObraSocial
 */
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+    
+    return Paciente::find($request->user()->paciente_id);
 });
 
+
+Route::post('/register', 'Api\AuthController@register');
+Route::post('/login', 'Api\AuthController@login');
 
 Route::get('/obras-sociales', function () {
     return ObraSocialResource::collection(ObraSocial::all());

@@ -43,7 +43,8 @@
             <div class="col mb-3">
                 <label for="input-historiaClinica">Historia clínica</label>
                 <textarea class="form-control" id="input-historiaClinica" name="historia_clinica"
-                    rows="4">{{ old('historia_clinica') }}</textarea>
+                    rows="4">{{ old('historia_clinica') }}
+                </textarea>
             </div>
         </div>
 
