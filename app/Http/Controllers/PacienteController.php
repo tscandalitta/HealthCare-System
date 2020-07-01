@@ -7,6 +7,7 @@ use App\ObraSocial;
 use App\Estudio;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 class PacienteController extends Controller
 {
@@ -37,7 +38,17 @@ class PacienteController extends Controller
             'apellido' => 'required'
         ]); 
 
-        $paciente = Paciente::create(request(['nombre','apellido','dni','telefono','direccion','obra_social_id','historia_clinica']));
+        $token = Str::random(80);
+        $paciente = Paciente::create([
+            'nombre' => request()->nombre,
+            'apellido' => request()->apellido,
+            'dni' => request()->dni,
+            'telefono' => request()->telefono,
+            'direccion' => request()->direccion,
+            'obra_social_id' => request()->obra_social_id,
+            'historia_clinica' => request()->historia_clinica,
+            'token' => $token,
+        ]);
 
         self::storeImages($paciente);
         
