@@ -30,7 +30,7 @@
             </div>
             <div class="col-md-3 col-sm-6 mb-3">
                 <label for="input-dni">DNI</label>
-                <input type="text" class="form-control" id="input-dni" name="dni" value="{{ old('dni') }}" >
+                <input type="text" class="form-control" id="input-dni" name="dni" value="{{ old('dni') }}" required>
             </div>
             <div class="col-md-3 col-sm-6 mb-3">
                 <label for="input-telefono">Teléfono</label>
