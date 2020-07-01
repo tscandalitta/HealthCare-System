@@ -15,8 +15,11 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                            <a class="nav-link" href="{{ url('/index') }}">{{ __('Lista de pacientes') }}</a>
+                        </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url('pacientes/create') }}">{{ __('Crear paciente') }}</a>
+                            <a class="nav-link" href="{{ url('pacientes/create') }}">{{ __('Añadir paciente') }}</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url('estadisticas') }}">{{ __('Estadísticas') }}</a>
