@@ -6,7 +6,7 @@ use App\Paciente;
 use App\ObraSocial;
 use App\Estudio;
 use Illuminate\Http\Request;
-use DB;
+use Illuminate\Support\Facades\Auth;
 
 class PacienteController extends Controller
 {
@@ -60,7 +60,13 @@ class PacienteController extends Controller
         }
     }
 
-    public function show($dni)
+    public function show()
+    {
+        $user = Auth::user();
+        return view('pacientes.profile', compact('user'));
+    }
+
+    public function showByDNI($dni)
     {
         $paciente = Paciente::query()
                         ->where('dni', 'LIKE', $dni)
@@ -85,7 +91,7 @@ class PacienteController extends Controller
             'nombre' => 'required',
             'apellido' => 'required'
         ]);
-        
+
         $paciente->nombre = request('nombre');
         $paciente->apellido = request('apellido');
         $paciente->dni = request('dni');
