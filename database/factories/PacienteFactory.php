@@ -4,6 +4,7 @@
 
 use App\Paciente;
 use Faker\Generator as Faker;
+use Illuminate\Support\Str;
 
 $factory->define(Paciente::class, function (Faker $faker) {
 
@@ -13,6 +14,7 @@ $factory->define(Paciente::class, function (Faker $faker) {
         'apellido' => $faker->lastName,
         'historia_clinica' => $faker->text,
         'direccion' => $faker->address,
-        'telefono' => $faker->e164PhoneNumber
+        'telefono' => $faker->e164PhoneNumber,
+        'token' => Str::random(80),
     ];
 });

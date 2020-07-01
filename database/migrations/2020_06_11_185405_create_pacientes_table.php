@@ -18,9 +18,10 @@ class CreatePacientesTable extends Migration
             $table->integer('dni')->unique()->nullable();
             $table->string('nombre');
             $table->string('apellido');
-            $table->text('historia_clinica')->nullable();
+            $table->text('historia_clinica')->nullable()->default('');
             $table->string('direccion')->nullable();
             $table->string('telefono')->nullable();
+            $table->string('token', 80)->unique();
             $table->integer('obra_social_id')->nullable();
             $table->timestamps();
         });
