@@ -15,7 +15,7 @@ Route::group(['middleware' => 'can:create pacientes'], function () {
 
 Route::group(['middleware' => 'can:view pacientes'], function () { 
     Route::get('/index', 'PacienteController@index')->name('home');
-    Route::get('/pacientes/{dni}', 'PacienteController@show');
+    Route::get('/pacientes/{dni}', 'PacienteController@showByDNI');
 });
 
 Route::group(['middleware' => 'can:delete pacientes'], function () { 
@@ -29,6 +29,8 @@ Route::get('/estadisticas','ObraSocialController@index');
 Route::get('/', 'PacienteController@home');
 
 Route::get('/home', 'PacienteController@home');
+
+Route::get('/profile', 'PacienteController@show');
 
 Auth::routes();
 
