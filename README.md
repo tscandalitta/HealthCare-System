@@ -28,7 +28,7 @@ La API le permite a los pacientes ver su informacion personal y editar sus datos
 
 ### Prueba de API
 
-#### Ruta de la API = https://sistemasdesalud.herokuapp.com/api/
+#### Ruta para obtener/enviar datos del usuario = https://sistemasdesalud.herokuapp.com/api/user
 
 * Parámetros para hacer un HTTP request con el metodo **GET**:
     * "api_token" = S5Vz1zgEdFmEaA1UU9VxTAOYlwYqpA5YCBdbHlc7szn8YNlh2MsN4mRFltc02kil9w6NsTHVe2ILPHrQ
