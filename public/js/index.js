@@ -5,6 +5,12 @@ $(document).ready(function () {
         buscarPaciente(dniPaciente);
 
     });
+    $(function () {
+        $('[data-toggle="popover"]').popover()
+      });
+    $('.popover-dismiss').popover({
+        trigger: 'focus'
+      });
     $('#tabla-pacientes').DataTable({
         "pageLength": 10,
         "dom": '<f>rt<"row justify-content-center"p>'
@@ -31,6 +37,7 @@ $(document).ready(function () {
         $("#field-direccion").text(paciente["direccion"]);
         $("#field-telefono").text(paciente["telefono"]);
         $("#field-historiaClinica").val(paciente["historia_clinica"]);
+        $("#field-token").attr('data-content',paciente["token"]);
 
         if(paciente["obra_social"] != null) {
             let nombre;
