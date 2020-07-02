@@ -37,7 +37,7 @@ class PacienteController extends Controller
             'nombre' => 'required',
             'apellido' => 'required'
         ]);
-        self::validateAndStoreImages();
+        self::validateImages();
     
         $paciente = Paciente::create([
             'nombre' => request()->nombre,
@@ -55,10 +55,15 @@ class PacienteController extends Controller
         return redirect()->home()->with('message', 'Paciente creado correctamente.');;
     }
 
-    private function validateAndStoreImages($paciente)
+    private function validateImages()
+    {
+        if(request()->hasFile('estudios'))
+            request()->validate(['estudios.*' => 'file|image|max:5000']);
+    }
+
+    private function storeImages($paciente)
     {
         if(request()->hasFile('estudios')){
-            request()->validate(['estudios.*' => 'file|image|max:5000']);
             foreach(request()->file('estudios') as $estudio) {
                 $imagen = base64_encode(file_get_contents($estudio));
                 $srcImagen = "data:image/;base64, " . $imagen;
@@ -100,7 +105,7 @@ class PacienteController extends Controller
             'apellido' => 'required'
         ]);
 
-        self::validateAndStoreImages($paciente);
+        self::validateImages();
 
         $paciente->nombre = request('nombre');
         $paciente->apellido = request('apellido');
@@ -110,6 +115,7 @@ class PacienteController extends Controller
         $paciente->historia_clinica = request('historia_clinica');
         $paciente->obra_social_id = request('obra_social_id');
 
+        self::storeImages($paciente);
         $paciente->save();
 
         return redirect()->home();
