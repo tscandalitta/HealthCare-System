@@ -11,11 +11,3 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     
     return new PacienteResource(Paciente::find($request->user()->paciente_id));
 });
-
-Route::get('/obras-sociales', function () {
-    return ObraSocialResource::collection(ObraSocial::all());
-});
-
-Route::get('/pacientes', function () {
-    return PacienteResource::collection(Paciente::all());
-});
