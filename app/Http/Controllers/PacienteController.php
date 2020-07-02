@@ -36,9 +36,9 @@ class PacienteController extends Controller
             'dni' => 'unique:pacientes',
             'nombre' => 'required',
             'apellido' => 'required'
-        ]); 
-
-        $token = Str::random(80);
+        ]);
+        self::validateImages();
+    
         $paciente = Paciente::create([
             'nombre' => request()->nombre,
             'apellido' => request()->apellido,
@@ -47,7 +47,7 @@ class PacienteController extends Controller
             'direccion' => request()->direccion,
             'obra_social_id' => request()->obra_social_id,
             'historia_clinica' => request()->historia_clinica,
-            'token' => $token,
+            'token' => Str::random(80),
         ]);
 
         self::storeImages($paciente);
@@ -55,26 +55,26 @@ class PacienteController extends Controller
         return redirect()->home();
     }
 
+    private function validateImages()
+    {
+        if(request()->hasFile('estudios'))
+            request()->validate(['estudios.*' => 'file|image|max:5000']);
+    }
+
     private function storeImages($paciente)
     {
-        if(request()->hasFile('estudios')){
-
-            request()->validate([
-                'estudios.*' => 'file|image|max:5000',
-            ]);
-
-            foreach(request()->file('estudios') as $estudio) {
-                $imagen = base64_encode(file_get_contents($estudio));
-                $srcImagen = "data:image/;base64, " . $imagen;
-                $paciente->estudios()->create(['imagen' => $srcImagen]);
-            }
+        foreach(request()->file('estudios') as $estudio) {
+            $imagen = base64_encode(file_get_contents($estudio));
+            $srcImagen = "data:image/;base64, " . $imagen;
+            $paciente->estudios()->create(['imagen' => $srcImagen]);
         }
     }
 
     public function show()
     {
-        $user = Auth::user();
-        return view('pacientes.profile', compact('user'));
+        $api_token = Auth::user()->api_token;
+        $paciente = Paciente::find(Auth::user()->paciente_id);
+        return view('pacientes.profile', compact('paciente','api_token'));
     }
 
     public function showByDNI($dni)
