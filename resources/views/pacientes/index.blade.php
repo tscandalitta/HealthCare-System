@@ -47,6 +47,10 @@
                         <div class="col">
                             <h4 id="field-nombre"></h4>
                         </div>
+                        <div class="col">
+                            <button type="button" class="btn btn-sm btn-outline-primary float-right" id="field-token" data-toggle="popover" 
+                                title="Con este token el paciente podrá acceder a sus datos:" data-content="">Mostrar token</button>
+                        </div>
                     </div>
                     <hr class="mt-0 mb-2">
                     <div class="row">
