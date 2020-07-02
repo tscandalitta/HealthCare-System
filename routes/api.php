@@ -9,7 +9,7 @@ use App\ObraSocial;
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     
-    return Paciente::find($request->user()->paciente_id);
+    return new PacienteResource(Paciente::find($request->user()->paciente_id));
 });
 
 Route::get('/obras-sociales', function () {
