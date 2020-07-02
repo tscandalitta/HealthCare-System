@@ -8,3 +8,10 @@ El ***paciente*** tendría, además, imágenes correspondientes a sus ***estudio
 Los usuarios serían tres: el ***médico***, que puede realizar el ABM de los pacientes y obras sociales, la ***secretaria***, que solamente puede agregar pacientes y ver sus datos y los ***usuarios comunes*** que tienen acceso sólo a su información personal.
 
 La API le permite a los pacientes ver su informacion personal y editar sus datos. Cada usuario tiene un token de acceso único y sólo puede acceder a sus propios datos.
+
+### Librerias externas:
+
+* select2 - https://select2.org/
+* magnific-popup - https://dimsemenov.com/plugins/magnific-popup/
+* dataTables - https://datatables.net/
+
