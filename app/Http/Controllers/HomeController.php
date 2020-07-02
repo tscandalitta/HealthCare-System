@@ -14,12 +14,6 @@ class HomeController extends Controller
         $this->middleware('auth');
     }
 
-
-    public function index()
-    {
-        return view('home');
-    }
-
     public function home()
     {
         $user = Auth::user();
@@ -29,10 +23,5 @@ class HomeController extends Controller
             return redirect()->route('home');
         else
             return redirect()->route('profile');
-    }
-
-    public function dashboard()
-    {
-        return view('admin.dashboard');
     }
 }
