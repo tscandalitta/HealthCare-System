@@ -60,7 +60,7 @@
     <hr>
 
     <footer>
-        <p class="text-danger">Si detectas que alguno de estos datos es incorrecto, por favor, comunicate con el médico.</p>
+        <p class="text-danger">Si detecta que alguno de estos datos es incorrecto, por favor, comuníquese con el médico.</p>
     </footer>
 
 </div>
