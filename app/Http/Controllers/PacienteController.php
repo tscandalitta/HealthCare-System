@@ -55,7 +55,7 @@ class PacienteController extends Controller
         return redirect()->home()->with('message', 'Paciente creado correctamente.');;
     }
 
-    private function validateAndStoreImages()
+    private function validateAndStoreImages($paciente)
     {
         if(request()->hasFile('estudios')){
             request()->validate(['estudios.*' => 'file|image|max:5000']);
@@ -65,11 +65,6 @@ class PacienteController extends Controller
                 $paciente->estudios()->create(['imagen' => $srcImagen]);
             }
         }
-    }
-
-    private function storeImages($paciente)
-    {
-        
     }
 
     public function show()
