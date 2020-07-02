@@ -22,13 +22,13 @@ Route::group(['middleware' => 'can:delete pacientes'], function () {
     Route::delete('/pacientes/{paciente}','PacienteController@destroy');
 });
 
+Route::group(['middleware' => 'can:manage obras_sociales'], function () { 
+    Route::get('/obras_sociales/create','ObraSocialController@create');
+    Route::post('/obras_sociales','ObraSocialController@store');
+});
+
 Route::get('/', 'HomeController@home');
 Route::get('/home', 'HomeController@home');
 Route::get('/profile', 'PacienteController@show')->name('profile');
 
 Auth::routes();
-
-
-// Route::get('/tokens', 'PacienteController@tokens');
-// Route::get('/admin', 'PacienteController@dashboard')->name('admin');
-// Route::get('/estadisticas','ObraSocialController@index');

@@ -55,7 +55,7 @@
                 <label for="input-obraSocial">Obra social</label>
                 <select class="form-control" id="input-obraSocial" name="obra_social_id" style="width: 100%">
                     @foreach ($obras_sociales as $obra_social)
-                    <option value="{{ $obra_social->id }}" @if($obra_social->sigla == null)
+                    <option value="{{ $obra_social->id }}" @if($obra_social->sigla == 'default')
                         selected="selected"
                         @endif
                         >{{$obra_social->getNombreCompleto()}}</option>

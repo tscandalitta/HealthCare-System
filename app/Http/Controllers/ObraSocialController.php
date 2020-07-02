@@ -8,11 +8,24 @@ use Illuminate\Http\Request;
 
 class ObraSocialController extends Controller
 {
-    public function index()
+    public function create()
     {
-        $obras_sociales = ObraSocial::all();
-        $pacientes = Paciente::all();
+        return view('obras_sociales.create');
+    }
 
-        return view('obras_sociales.index', compact('obras_sociales','pacientes'));
+    public function store()
+    {
+        $this->validate(request(), [
+            'nombre' => 'required'
+        ]);
+
+        if(request()->sigla != null)
+            $this->validate(request(), [
+                'sigla' => 'unique:obras_sociales'
+            ]);
+    
+        ObraSocial::create(request()->all());
+        
+        return redirect()->home();
     }
 }

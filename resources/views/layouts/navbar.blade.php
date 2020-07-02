@@ -24,6 +24,11 @@
                     <a class="nav-link" href="{{ url('pacientes/create') }}">{{ __('Añadir paciente') }}</a>
                 </li>
                 @endcan
+                @can ('manage obras_sociales')
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url('obras_sociales/create') }}">{{ __('Añadir obra social') }}</a>
+                </li>
+                @endcan
             </ul>
 
             <!-- Right Side Of Navbar -->
