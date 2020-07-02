@@ -25,12 +25,6 @@
                             <a class="nav-link" href="{{ url('pacientes/create') }}">{{ __('Añadir paciente') }}</a>
                         </li>
                     @endcan
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url('estadisticas') }}">{{ __('Estadísticas') }}</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/tokens') }}">{{ __('Tokens de acceso') }}</a>
-                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->

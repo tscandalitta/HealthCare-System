@@ -135,15 +135,15 @@ class PacienteController extends Controller
         return redirect()->home();
     }
 
-    public function dashboard()
-    {
-        return view('admin.dashboard');
-    }
+    // public function dashboard()
+    // {
+    //     return view('admin.dashboard');
+    // }
 
-    public function tokens()
-    {
-        $pacientes = Paciente::all();
+    // public function tokens()
+    // {
+    //     $pacientes = Paciente::all();
 
-        return view('pacientes.tokens', compact('pacientes'));
-    }
+    //     return view('pacientes.tokens', compact('pacientes'));
+    // }
 }
