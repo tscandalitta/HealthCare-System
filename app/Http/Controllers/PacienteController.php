@@ -37,7 +37,7 @@ class PacienteController extends Controller
             'nombre' => 'required',
             'apellido' => 'required'
         ]);
-        self::validateImages();
+        self::validateAndStoreImages();
     
         $paciente = Paciente::create([
             'nombre' => request()->nombre,
@@ -52,22 +52,24 @@ class PacienteController extends Controller
 
         self::storeImages($paciente);
         
-        return redirect()->home();
+        return redirect()->home()->with('message', 'Paciente creado correctamente.');;
     }
 
-    private function validateImages()
+    private function validateAndStoreImages()
     {
-        if(request()->hasFile('estudios'))
+        if(request()->hasFile('estudios')){
             request()->validate(['estudios.*' => 'file|image|max:5000']);
+            foreach(request()->file('estudios') as $estudio) {
+                $imagen = base64_encode(file_get_contents($estudio));
+                $srcImagen = "data:image/;base64, " . $imagen;
+                $paciente->estudios()->create(['imagen' => $srcImagen]);
+            }
+        }
     }
 
     private function storeImages($paciente)
     {
-        foreach(request()->file('estudios') as $estudio) {
-            $imagen = base64_encode(file_get_contents($estudio));
-            $srcImagen = "data:image/;base64, " . $imagen;
-            $paciente->estudios()->create(['imagen' => $srcImagen]);
-        }
+        
     }
 
     public function show()
@@ -103,6 +105,8 @@ class PacienteController extends Controller
             'apellido' => 'required'
         ]);
 
+        self::validateAndStoreImages($paciente);
+
         $paciente->nombre = request('nombre');
         $paciente->apellido = request('apellido');
         $paciente->dni = request('dni');
@@ -112,8 +116,6 @@ class PacienteController extends Controller
         $paciente->obra_social_id = request('obra_social_id');
 
         $paciente->save();
-
-        self::storeImages($paciente);
 
         return redirect()->home();
     }
