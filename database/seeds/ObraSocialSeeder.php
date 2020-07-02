@@ -8,6 +8,7 @@ class ObraSocialSeeder extends Seeder
     public function run()
     {
         ObraSocial::create([
+            'sigla' => 'default',
             'nombre' => 'Sin obra social'
         ]);
 
