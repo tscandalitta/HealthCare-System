@@ -45,6 +45,8 @@ La API le permite a los pacientes ver su informacion personal y editar sus datos
     Solo se le permite al usuario modificar su número de teléfono y su dirección.
     
     
+La colección de Postman se encuentra dentro de la carpeta postman
+    
 ### Librerias externas:
 
 * select2 - https://select2.org/
