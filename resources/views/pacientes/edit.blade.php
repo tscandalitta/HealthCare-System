@@ -57,11 +57,10 @@
                 <label for="input-obraSocial">Obra social</label>
                 <select class="form-control" id="input-obraSocial" name="obra_social_id" style="width: 100%">
                     @foreach ($obras_sociales as $obra_social)
-                    <option value="{{ $obra_social->id }}"
-                        @if($obra_social->id == $paciente->obraSocial->id)
-                            selected="selected"
+                    <option value="{{ $obra_social->id }}" @if($obra_social->id == $paciente->obraSocial->id)
+                        selected="selected"
                         @endif
-                    >{{$obra_social->getNombreCompleto()}}</option>
+                        >{{$obra_social->getNombreCompleto()}}</option>
                     @endforeach
                 </select>
             </div>
@@ -81,15 +80,15 @@
         </div>
     </form>
     @can ('delete pacientes')
-                    <div class="row">
-                        <div class="col mt-2">
-                            <form id="form-delete" method="POST" action="/pacientes/{{$paciente->id}}">
-                                @method('DELETE')
-                                @csrf
-                                <button type="submit" class="btn btn-danger">Eliminar paciente</button>
-                            </form>
-                        </div>
-                    </div>
+    <div class="row">
+        <div class="col mt-2">
+            <form id="form-delete" method="POST" action="/pacientes/{{$paciente->id}}">
+                @method('DELETE')
+                @csrf
+                <button type="submit" class="btn btn-danger">Eliminar paciente</button>
+            </form>
+        </div>
+    </div>
     @endcan
 
     @if ($errors->any())
@@ -110,5 +109,4 @@
 <script src="/js/create.js"></script>
 <script src="/js/magnific-popup.js"></script>
 <script src="/js/gallery.js"></script>
-
 @endsection
