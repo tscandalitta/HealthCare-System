@@ -140,8 +140,10 @@ class PacienteController extends Controller
         return view('admin.dashboard');
     }
 
-    public function home()
+    public function tokens()
     {
-        return view('auth.login');
+        $pacientes = Paciente::all();
+
+        return view('pacientes.tokens', compact('pacientes'));
     }
 }

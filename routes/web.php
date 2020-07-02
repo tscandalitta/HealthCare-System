@@ -26,11 +26,13 @@ Route::get('/admin', 'PacienteController@dashboard')->name('admin');
 
 Route::get('/estadisticas','ObraSocialController@index');
 
-Route::get('/', 'PacienteController@home');
+Route::get('/', 'HomeController@home');
 
-Route::get('/home', 'PacienteController@home');
+Route::get('/home', 'HomeController@home');
 
-Route::get('/profile', 'PacienteController@show');
+Route::get('/profile', 'PacienteController@show')->name('profile');
+
+Route::get('/tokens', 'PacienteController@tokens');
 
 Auth::routes();
 
