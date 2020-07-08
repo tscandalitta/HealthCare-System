@@ -32,7 +32,6 @@ class PacienteController extends Controller
 
     public function store()
     {
-        self::validateData();
         self::validateImages();
     
         $paciente = Paciente::create([
@@ -49,14 +48,6 @@ class PacienteController extends Controller
         self::storeImages($paciente);
         
         return redirect()->home()->with('message', 'Paciente creado correctamente.');;
-    }
-
-    private function validateData(){
-        $this->validate(request(), [
-            'dni' => 'numeric|unique:pacientes|required',
-            'nombre' => 'alpha|required',
-            'apellido' => 'alpha|required',
-        ]);
     }
 
     private function validateImages()
@@ -103,7 +94,6 @@ class PacienteController extends Controller
 
     public function update(Paciente $paciente)
     {
-        self::validateData();
         self::validateImages();
 
         $paciente->nombre = request('nombre');
