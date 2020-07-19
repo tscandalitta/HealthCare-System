@@ -3,8 +3,7 @@
 @section ('title', 'Perfil')
 
 @section ('content')
-
-    <paciente></paciente>
+<paciente api_token="{{ $api_token }}"></paciente>
 
 @endsection
 

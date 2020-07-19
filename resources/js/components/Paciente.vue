@@ -1,27 +1,55 @@
 <template>
-    <informacion-paciente></informacion-paciente>
+    <informacion-paciente :paciente="info_paciente"></informacion-paciente>
 </template>
 
 
 <script>
-
     export default {
-        data() {
-            return {
-
+        props: {
+            api_token: {
+                type: String,
+                required: true
             }
         },
 
-        created() {
-            this.fetchPaciente();
+        data() {
+            return {
+                info_paciente: {
+                    nombre: null,
+                    apellido: null,
+                    dni: null,
+                    telefono: null,
+                    obra_social: null,
+                    historia_clinica: null,
+                    direccion: null,
+                },
+                estudios_paciente: [],
+            }
         },
         methods: {
-            fetchPaciente() {
-                fetch('api')
+            setData(response) {
+                let datos = response['data']['data'];
+                let paciente = this.info_paciente;
+                
+                this.estudios_paciente= datos['estudios'];
+                paciente.nombre = datos.nombre;
+                paciente.apellido = datos.apellido;
+                paciente.obra_social = datos.obra_social;
+                paciente.dni = datos.dni;
+                paciente.telefono = datos.telefono;
+                paciente.historia_clinica = datos.historia_clinica;
+                paciente.direccion = datos.direccion;
             }
         },
         mounted() {
-            console.log('Component mounted.')
+            axios
+                .get('/api/user', {
+                    headers: {
+                        Authorization: 'Bearer ' + this.api_token, 
+                    }
+                })
+                .then(response => this.setData(response))
+                .catch(error => console.error())
         }
     }
 </script>
