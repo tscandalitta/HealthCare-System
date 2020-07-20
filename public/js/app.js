@@ -1923,6 +1923,11 @@ __webpack_require__.r(__webpack_exports__);
   components: {
     VueEasyLightbox: vue_easy_lightbox__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
+  props: {
+    estudios: {
+      type: Array
+    }
+  },
   data: function data() {
     return {
       imgs: ['https://via.placeholder.com/450.png/', 'https://via.placeholder.com/300.png/', 'https://via.placeholder.com/150.png/', {
@@ -2072,7 +2077,7 @@ __webpack_require__.r(__webpack_exports__);
     setData: function setData(response) {
       var datos = response['data']['data'];
       var paciente = this.info_paciente;
-      this.estudios_paciente = datos['estudios'];
+      this.getImages(datos['estudios']);
       paciente.nombre = datos.nombre;
       paciente.apellido = datos.apellido;
       paciente.obra_social = datos.obra_social;
@@ -2080,6 +2085,11 @@ __webpack_require__.r(__webpack_exports__);
       paciente.telefono = datos.telefono;
       paciente.historia_clinica = datos.historia_clinica;
       paciente.direccion = datos.direccion;
+    },
+    getImages: function getImages(estudios) {
+      for (var i = 0; i < estudios.length; i++) {
+        this.estudios_paciente.push(estudios[i].imagen);
+      }
     }
   },
   mounted: function mounted() {
@@ -37663,7 +37673,7 @@ var render = function() {
     "div",
     {},
     [
-      _vm._l(_vm.imgs, function(src, index) {
+      _vm._l(_vm.estudios, function(src, index) {
         return _c(
           "div",
           {
@@ -37680,7 +37690,7 @@ var render = function() {
       }),
       _vm._v(" "),
       _c("vue-easy-lightbox", {
-        attrs: { visible: _vm.visible, imgs: _vm.imgs, index: _vm.index },
+        attrs: { visible: _vm.visible, imgs: _vm.estudios, index: _vm.index },
         on: { hide: _vm.handleHide }
       })
     ],
@@ -37912,7 +37922,7 @@ var render = function() {
     [
       _c("informacion-paciente", { attrs: { paciente: _vm.info_paciente } }),
       _vm._v(" "),
-      _c("estudios-paciente")
+      _c("estudios-paciente", { attrs: { estudios: _vm.estudios_paciente } })
     ],
     1
   )
