@@ -1,5 +1,8 @@
 <template>
-    <informacion-paciente :paciente="info_paciente"></informacion-paciente>
+    <div>
+        <informacion-paciente :paciente="info_paciente"></informacion-paciente>
+        <estudios-paciente></estudios-paciente>
+    </div>
 </template>
 
 
