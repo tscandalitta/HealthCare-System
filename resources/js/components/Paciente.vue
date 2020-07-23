@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="container">
         <informacion-paciente :paciente="info_paciente"></informacion-paciente>
         <estudios-paciente :estudios="estudios_paciente"></estudios-paciente>
     </div>
