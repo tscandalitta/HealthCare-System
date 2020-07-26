@@ -29,7 +29,6 @@ Route::group(['middleware' => 'can:manage obras_sociales'], function () {
 
 Route::get('/', 'HomeController@home');
 Route::get('/home', 'HomeController@home');
-Route::get('/profile', 'PacienteController@show');//->name('profile');
-Route::get('/profile2', 'PacienteController@show2')->name('profile');
+Route::get('/profile', 'PacienteController@show')->name('profile');
 
 Auth::routes();
