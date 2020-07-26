@@ -1940,10 +1940,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     paciente: {
@@ -38469,7 +38465,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", [
     _c("form", { on: { submit: _vm.sendUserData } }, [
-      _c("div", { staticClass: "form-row" }, [
+      _c("div", { staticClass: "form-row justify-content-center" }, [
         _c("div", { staticClass: "col-md-6 mb-3" }, [
           _c("label", { attrs: { for: "input-direccion" } }, [
             _vm._v("Dirección")
@@ -38493,32 +38489,6 @@ var render = function() {
                   return
                 }
                 _vm.$set(_vm.paciente, "direccion", $event.target.value)
-              }
-            }
-          })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-md-3 col-sm-6 mb-3" }, [
-          _c("label", { attrs: { for: "input-dni" } }, [_vm._v("DNI")]),
-          _vm._v(" "),
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.paciente.dni,
-                expression: "paciente.dni"
-              }
-            ],
-            staticClass: "form-control",
-            attrs: { type: "text", id: "input-dni", name: "dni", required: "" },
-            domProps: { value: _vm.paciente.dni },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.$set(_vm.paciente, "dni", $event.target.value)
               }
             }
           })
@@ -38576,7 +38546,7 @@ var staticRenderFns = [
           "button",
           {
             staticClass: "btn btn-outline-secondary",
-            attrs: { type: "button", onclick: "history.back()" }
+            attrs: { type: "button", onclick: "location.reload()" }
           },
           [_vm._v("Cancelar")]
         )
