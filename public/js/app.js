@@ -1941,6 +1941,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     paciente: {
@@ -2039,9 +2042,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     paciente: {
+      required: true
+    },
+    estudios: {
       required: true
     }
   },
@@ -2112,10 +2119,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     paciente: {
@@ -2135,7 +2138,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
 //
 //
 //
@@ -38554,7 +38556,9 @@ var render = function() {
       _c("hr"),
       _vm._v(" "),
       _vm._m(0)
-    ])
+    ]),
+    _vm._v(" "),
+    _vm._m(1)
   ])
 }
 var staticRenderFns = [
@@ -38575,6 +38579,18 @@ var staticRenderFns = [
             attrs: { type: "button", onclick: "history.back()" }
           },
           [_vm._v("Cancelar")]
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("footer", [
+      _c("p", { staticClass: "text-danger" }, [
+        _vm._v(
+          "Si desea cambiar algún dato adicional, por favor, comuníquese con el\n            médico."
         )
       ])
     ])
@@ -38689,7 +38705,11 @@ var render = function() {
           }
         ]
       },
-      [_c("informacion-paciente", { attrs: { paciente: _vm.paciente } })],
+      [
+        _c("informacion-paciente", { attrs: { paciente: _vm.paciente } }),
+        _vm._v(" "),
+        _c("estudios-paciente", { attrs: { estudios: _vm.estudios } })
+      ],
       1
     ),
     _vm._v(" "),
@@ -38814,8 +38834,6 @@ var render = function() {
       ])
     ]),
     _vm._v(" "),
-    _vm._m(5),
-    _vm._v(" "),
     _c("hr")
   ])
 }
@@ -38863,18 +38881,6 @@ var staticRenderFns = [
       { staticClass: "mr-1", attrs: { for: "field-historiaClinica" } },
       [_c("strong", [_vm._v("Historia clínica:")])]
     )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("footer", [
-      _c("p", { staticClass: "text-danger" }, [
-        _vm._v(
-          "Si detecta que alguno de estos datos es incorrecto, por favor, comuníquese con el\n            médico."
-        )
-      ])
-    ])
   }
 ]
 render._withStripped = true
@@ -38902,9 +38908,9 @@ var render = function() {
     "div",
     { staticClass: "container" },
     [
-      _c("info-tabs", { attrs: { paciente: _vm.info_paciente } }),
-      _vm._v(" "),
-      _c("estudios-paciente", { attrs: { estudios: _vm.estudios_paciente } })
+      _c("info-tabs", {
+        attrs: { paciente: _vm.info_paciente, estudios: _vm.estudios_paciente }
+      })
     ],
     1
   )

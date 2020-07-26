@@ -40,12 +40,8 @@
             </div>
         </div>
 
-        <footer>
-            <p class="text-danger">Si detecta que alguno de estos datos es incorrecto, por favor, comuníquese con el
-                médico.</p>
-        </footer>
-
         <hr>
+        
     </div>
 </template>
 

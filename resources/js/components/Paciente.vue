@@ -1,7 +1,6 @@
 <template>
     <div class="container">
-        <info-tabs :paciente="info_paciente"></info-tabs>
-        <estudios-paciente :estudios="estudios_paciente"></estudios-paciente>
+        <info-tabs :paciente="info_paciente" :estudios="estudios_paciente"></info-tabs>
     </div>
 </template>
 

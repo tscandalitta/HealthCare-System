@@ -11,6 +11,7 @@
 
         <div v-show="selectedTab === 'Ver datos'">
             <informacion-paciente :paciente="paciente"></informacion-paciente>
+            <estudios-paciente :estudios="estudios"></estudios-paciente>
         </div>
 
         <div v-show="selectedTab === 'Editar datos'">
@@ -24,6 +25,9 @@
 export default {
     props: {
         paciente: {    
+            required: true
+        },
+        estudios: {    
             required: true
         }
     },
