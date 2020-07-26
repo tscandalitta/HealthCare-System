@@ -2039,6 +2039,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     paciente: {
@@ -2059,9 +2061,9 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/InformacionPaciente.vue?vue&type=script&lang=js&":
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/MostrarInfoPaciente.vue?vue&type=script&lang=js&":
 /*!******************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/InformacionPaciente.vue?vue&type=script&lang=js& ***!
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/MostrarInfoPaciente.vue?vue&type=script&lang=js& ***!
   \******************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -6670,7 +6672,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.tabs {\r\n    margin-left: 20px;\r\n    cursor: pointer;\n}\n.activeTab {\r\n    color: #16C0B0;\r\n    text-decoration: underline;\n}\r\n", ""]);
+exports.push([module.i, "\n.tabs {\n    margin-right: 20px;\n    cursor: pointer;\n}\n.activeTab {\n    color: #16C0B0;\n    text-decoration: underline;\n}\n", ""]);
 
 // exports
 
@@ -38642,26 +38644,28 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c(
-      "ul",
-      _vm._l(_vm.tabs, function(tab, index) {
-        return _c(
-          "span",
-          {
-            key: tab,
-            staticClass: "tabs",
-            class: { activeTab: _vm.selectedTab === tab },
-            on: {
-              click: function($event) {
-                _vm.selectedTab = tab
+    _c("div", { staticClass: "row" }, [
+      _c(
+        "ul",
+        _vm._l(_vm.tabs, function(tab) {
+          return _c(
+            "span",
+            {
+              key: tab,
+              staticClass: "tabs",
+              class: { activeTab: _vm.selectedTab === tab },
+              on: {
+                click: function($event) {
+                  _vm.selectedTab = tab
+                }
               }
-            }
-          },
-          [_vm._v(_vm._s(tab))]
-        )
-      }),
-      0
-    ),
+            },
+            [_vm._v(_vm._s(tab))]
+          )
+        }),
+        0
+      )
+    ]),
     _vm._v(" "),
     _c(
       "div",
@@ -38676,7 +38680,7 @@ var render = function() {
         ]
       },
       [
-        _c("informacion-paciente", { attrs: { paciente: _vm.paciente } }),
+        _c("mostrar-info-paciente", { attrs: { paciente: _vm.paciente } }),
         _vm._v(" "),
         _c("estudios-paciente", { attrs: { estudios: _vm.estudios } })
       ],
@@ -38707,9 +38711,9 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/InformacionPaciente.vue?vue&type=template&id=04c4075a&":
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/MostrarInfoPaciente.vue?vue&type=template&id=5d0f3af8&":
 /*!**********************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/InformacionPaciente.vue?vue&type=template&id=04c4075a& ***!
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/MostrarInfoPaciente.vue?vue&type=template&id=5d0f3af8& ***!
   \**********************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -51081,7 +51085,7 @@ window.eventBus = new Vue();
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 Vue.component('paciente', __webpack_require__(/*! ./components/Paciente.vue */ "./resources/js/components/Paciente.vue")["default"]);
-Vue.component('informacion-paciente', __webpack_require__(/*! ./components/InformacionPaciente.vue */ "./resources/js/components/InformacionPaciente.vue")["default"]);
+Vue.component('mostrar-info-paciente', __webpack_require__(/*! ./components/MostrarInfoPaciente.vue */ "./resources/js/components/MostrarInfoPaciente.vue")["default"]);
 Vue.component('estudios-paciente', __webpack_require__(/*! ./components/EstudiosPaciente.vue */ "./resources/js/components/EstudiosPaciente.vue")["default"]);
 Vue.component('info-tabs', __webpack_require__(/*! ./components/InfoTabs.vue */ "./resources/js/components/InfoTabs.vue")["default"]);
 Vue.component('editar-info-paciente', __webpack_require__(/*! ./components/EditarInfoPaciente.vue */ "./resources/js/components/EditarInfoPaciente.vue")["default"]);
@@ -51385,17 +51389,17 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/components/InformacionPaciente.vue":
+/***/ "./resources/js/components/MostrarInfoPaciente.vue":
 /*!*********************************************************!*\
-  !*** ./resources/js/components/InformacionPaciente.vue ***!
+  !*** ./resources/js/components/MostrarInfoPaciente.vue ***!
   \*********************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _InformacionPaciente_vue_vue_type_template_id_04c4075a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./InformacionPaciente.vue?vue&type=template&id=04c4075a& */ "./resources/js/components/InformacionPaciente.vue?vue&type=template&id=04c4075a&");
-/* harmony import */ var _InformacionPaciente_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./InformacionPaciente.vue?vue&type=script&lang=js& */ "./resources/js/components/InformacionPaciente.vue?vue&type=script&lang=js&");
+/* harmony import */ var _MostrarInfoPaciente_vue_vue_type_template_id_5d0f3af8___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./MostrarInfoPaciente.vue?vue&type=template&id=5d0f3af8& */ "./resources/js/components/MostrarInfoPaciente.vue?vue&type=template&id=5d0f3af8&");
+/* harmony import */ var _MostrarInfoPaciente_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./MostrarInfoPaciente.vue?vue&type=script&lang=js& */ "./resources/js/components/MostrarInfoPaciente.vue?vue&type=script&lang=js&");
 /* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -51405,9 +51409,9 @@ __webpack_require__.r(__webpack_exports__);
 /* normalize component */
 
 var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _InformacionPaciente_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _InformacionPaciente_vue_vue_type_template_id_04c4075a___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _InformacionPaciente_vue_vue_type_template_id_04c4075a___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _MostrarInfoPaciente_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _MostrarInfoPaciente_vue_vue_type_template_id_5d0f3af8___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _MostrarInfoPaciente_vue_vue_type_template_id_5d0f3af8___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
   null,
@@ -51417,38 +51421,38 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "resources/js/components/InformacionPaciente.vue"
+component.options.__file = "resources/js/components/MostrarInfoPaciente.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
 
-/***/ "./resources/js/components/InformacionPaciente.vue?vue&type=script&lang=js&":
+/***/ "./resources/js/components/MostrarInfoPaciente.vue?vue&type=script&lang=js&":
 /*!**********************************************************************************!*\
-  !*** ./resources/js/components/InformacionPaciente.vue?vue&type=script&lang=js& ***!
+  !*** ./resources/js/components/MostrarInfoPaciente.vue?vue&type=script&lang=js& ***!
   \**********************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_InformacionPaciente_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./InformacionPaciente.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/InformacionPaciente.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_InformacionPaciente_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MostrarInfoPaciente_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./MostrarInfoPaciente.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/MostrarInfoPaciente.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MostrarInfoPaciente_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
-/***/ "./resources/js/components/InformacionPaciente.vue?vue&type=template&id=04c4075a&":
+/***/ "./resources/js/components/MostrarInfoPaciente.vue?vue&type=template&id=5d0f3af8&":
 /*!****************************************************************************************!*\
-  !*** ./resources/js/components/InformacionPaciente.vue?vue&type=template&id=04c4075a& ***!
+  !*** ./resources/js/components/MostrarInfoPaciente.vue?vue&type=template&id=5d0f3af8& ***!
   \****************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_InformacionPaciente_vue_vue_type_template_id_04c4075a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./InformacionPaciente.vue?vue&type=template&id=04c4075a& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/InformacionPaciente.vue?vue&type=template&id=04c4075a&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_InformacionPaciente_vue_vue_type_template_id_04c4075a___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MostrarInfoPaciente_vue_vue_type_template_id_5d0f3af8___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./MostrarInfoPaciente.vue?vue&type=template&id=5d0f3af8& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/MostrarInfoPaciente.vue?vue&type=template&id=5d0f3af8&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MostrarInfoPaciente_vue_vue_type_template_id_5d0f3af8___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_InformacionPaciente_vue_vue_type_template_id_04c4075a___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MostrarInfoPaciente_vue_vue_type_template_id_5d0f3af8___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

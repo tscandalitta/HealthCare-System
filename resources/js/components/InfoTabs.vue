@@ -1,16 +1,18 @@
 <template>
     <div>
+        <div class="row">
         <ul>
           <span class="tabs" 
                 :class="{ activeTab: selectedTab === tab }"
-                v-for="(tab, index) in tabs"
+                v-for="tab in tabs"
                 @click="selectedTab = tab"
                 :key="tab"
           >{{ tab }}</span>
         </ul>
+        </div>
 
         <div v-show="selectedTab === 'Ver datos'">
-            <informacion-paciente :paciente="paciente"></informacion-paciente>
+            <mostrar-info-paciente :paciente="paciente"></mostrar-info-paciente>
             <estudios-paciente :estudios="estudios"></estudios-paciente>
         </div>
 
@@ -43,13 +45,14 @@ export default {
 </script>
 
 <style>
-.tabs {
-    margin-left: 20px;
-    cursor: pointer;
-  }
+    .tabs {
+        margin-right: 20px;
+        cursor: pointer; 
+    }
 
-  .activeTab {
-    color: #16C0B0;
-    text-decoration: underline;
-  }
+    .activeTab {
+        color: #16C0B0;
+        text-decoration: underline;
+        
+    }
 </style>

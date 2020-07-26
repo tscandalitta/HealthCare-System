@@ -21,7 +21,7 @@ window.eventBus = new Vue();
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 Vue.component('paciente', require('./components/Paciente.vue').default);
-Vue.component('informacion-paciente', require('./components/InformacionPaciente.vue').default);
+Vue.component('mostrar-info-paciente', require('./components/MostrarInfoPaciente.vue').default);
 Vue.component('estudios-paciente', require('./components/EstudiosPaciente.vue').default);
 Vue.component('info-tabs', require('./components/InfoTabs.vue').default);
 Vue.component('editar-info-paciente', require('./components/EditarInfoPaciente.vue').default);
