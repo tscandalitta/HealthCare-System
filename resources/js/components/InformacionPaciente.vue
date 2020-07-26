@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1>{{ paciente.nombre }}</h1>
+        <h1>{{ paciente.nombre + " " + paciente.apellido }}</h1>
 
         <hr>
 
@@ -40,25 +40,12 @@
             </div>
         </div>
 
-        <hr>
-
-        <div class="row">
-            <div class="col">
-                <label class="mr-1" for=""><strong>API Token:</strong>
-                    Utilízalo para acceder a tus datos desde otros servicios web. No lo compartas con nadie.</label>
-                <button type="button" class="btn btn-sm btn-primary " id="field-token" data-toggle="popover"
-                    title="Token:" data-content="tokenn">{{ paciente.nombre }}</button>
-
-            </div>
-        </div>
-
-        <hr>
-
         <footer>
             <p class="text-danger">Si detecta que alguno de estos datos es incorrecto, por favor, comuníquese con el
                 médico.</p>
         </footer>
 
+        <hr>
     </div>
 </template>
 

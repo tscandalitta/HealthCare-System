@@ -12,9 +12,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::middleware('auth:api')->post('/user', function (Request $request) {
-    
     $paciente = Paciente::find($request->user()->paciente_id);
     
+    if($request->dni != null)
+        $paciente->dni = $request->dni;
     if($request->telefono != null)
         $paciente->telefono = $request->telefono;
     if($request->direccion != null)

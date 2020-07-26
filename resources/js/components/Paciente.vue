@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <informacion-paciente :paciente="info_paciente"></informacion-paciente>
+        <info-tabs :paciente="info_paciente"></info-tabs>
         <estudios-paciente :estudios="estudios_paciente"></estudios-paciente>
     </div>
 </template>
@@ -18,8 +18,8 @@
         data() {
             return {
                 info_paciente: {
-                    nombre: null,
-                    apellido: null,
+                    nombre: '',
+                    apellido: '',
                     dni: null,
                     telefono: null,
                     obra_social: null,
@@ -58,6 +58,19 @@
                 })
                 .then(response => this.setData(response))
                 .catch(error => console.error());
+            
+            eventBus.$on('info-editada', paciente => {
+                axios
+                    .post('/api/user',paciente,{
+                        headers: {
+                            Authorization: 'Bearer ' + this.api_token, 
+                        }
+                    })
+                    .then(response => {
+                        console.log(response);
+                    })
+                    .catch(error => console.error());
+            });
         }
     }
 </script>

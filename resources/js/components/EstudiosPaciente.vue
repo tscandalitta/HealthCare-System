@@ -1,10 +1,13 @@
 <template>
-    <div class="row" id="row-estudios">
+    <div>
+        <h3>Estudios:</h3>
+        <div class="row" id="row-estudios">
             <div v-for="(src, index) in estudios" :key="index" class="pic m-1" @click="() => showImg(index)">
                 <img :src="src" class="img">
             </div>
             <vue-easy-lightbox :visible="visible" :imgs="estudios" :index="index" @hide="handleHide">
             </vue-easy-lightbox>
+        </div>
     </div>
 </template>
 
