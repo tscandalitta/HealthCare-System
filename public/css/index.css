@@ -1,0 +1,18 @@
+#tabla-pacientes tr:hover{
+    cursor: pointer;
+}
+
+table {
+    background-color: white;
+}
+
+.image-container{
+    background-color: white;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.25rem;
+}
+
+#cartel-inicial{
+    font-size: 3em; 
+    color:rgba(0, 0, 0, 0.75);
+}

@@ -1,0 +1,113 @@
+{
+	"info": {
+		"_postman_id": "c55c2df4-a7b0-49f0-a886-89238a447a52",
+		"name": "Proyecto 2",
+		"description": "Coleccion de prueba del proyecto 2 - HealthCare",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "get-info-usuario",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://sistemasdesalud.herokuapp.com/api/user?api_token=S5Vz1zgEdFmEaA1UU9VxTAOYlwYqpA5YCBdbHlc7szn8YNlh2MsN4mRFltc02kil9w6NsTHVe2ILPHrQ",
+					"protocol": "https",
+					"host": [
+						"sistemasdesalud",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"user"
+					],
+					"query": [
+						{
+							"key": "api_token",
+							"value": "S5Vz1zgEdFmEaA1UU9VxTAOYlwYqpA5YCBdbHlc7szn8YNlh2MsN4mRFltc02kil9w6NsTHVe2ILPHrQ"
+						}
+					]
+				},
+				"description": "Obtiene los datos personales, historia clinica y estudios(codificados en base 64) del usuario"
+			},
+			"response": []
+		},
+		{
+			"name": "edit-info-paciente",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "https://sistemasdesalud.herokuapp.com/api/user?api_token=S5Vz1zgEdFmEaA1UU9VxTAOYlwYqpA5YCBdbHlc7szn8YNlh2MsN4mRFltc02kil9w6NsTHVe2ILPHrQ&telefono=12345678&direccion=Calle Falsa 123",
+					"protocol": "https",
+					"host": [
+						"sistemasdesalud",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"user"
+					],
+					"query": [
+						{
+							"key": "api_token",
+							"value": "S5Vz1zgEdFmEaA1UU9VxTAOYlwYqpA5YCBdbHlc7szn8YNlh2MsN4mRFltc02kil9w6NsTHVe2ILPHrQ"
+						},
+						{
+							"key": "telefono",
+							"value": "12345678"
+						},
+						{
+							"key": "direccion",
+							"value": "Calle Falsa 123"
+						}
+					]
+				},
+				"description": "Permite modificar los datos de contacto del paciente:\r\ntelefono y direccion"
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "683d9a4f-952a-42d0-a35c-f42d112be99a",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "2e6a4731-3e41-42a5-813d-1dbc8156a76d",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
