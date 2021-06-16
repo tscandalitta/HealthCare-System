@@ -3,7 +3,11 @@
 
         <img class="mx-2" src="/assets/logo-fondo-blanco.png" alt="" style="max-width: 2em; height: auto;">
 
-        <a class="navbar-brand" href="{{ url('/index') }}">
+        <a class="navbar-brand" 
+            @can ('view pacientes')
+                href="{{ url('/index') }}"
+            @endcan
+        >
             {{ config('app.name', 'Laravel') }}
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"

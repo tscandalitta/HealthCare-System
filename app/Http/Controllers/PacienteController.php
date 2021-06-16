@@ -71,7 +71,7 @@ class PacienteController extends Controller
     {
         $api_token = Auth::user()->api_token;
         $paciente = Paciente::find(Auth::user()->paciente_id);
-        return view('pacientes.profile', compact('paciente','api_token'));
+        return view('pacientes.profile-vue', compact('paciente','api_token'));
     }
 
     public function showByDNI($dni)
