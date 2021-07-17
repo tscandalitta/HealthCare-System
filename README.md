@@ -1,19 +1,19 @@
-## Gestión de pacientes online
+## HealthCare System
 
 https://sistemasdesalud.herokuapp.com/
 
 ### Descripción:
-El sistema desarrollado le permite al médico almacenar online los datos de sus pacientes, sus historias clínicas, patologías, imágenes, etcétera.
+HealthCare System es un sistema que le permite al médico almacenar de forma online los datos de sus pacientes, sus historias clínicas, patologías, imágenes, etcétera. Fue desarrollado como parte de la materia Ingeniería de Aplicaciones Web utilizando **Laravel** y **Vue.js**.
 
-Una de las entidades es el ***paciente***, con todos sus datos personales y otra es la ***obra social***, la cual posee una sigla y un nombre.
-El ***paciente*** tiene, además, imágenes correspondientes a sus ***estudios*** tales como radiografías, resonancias o tomografías.
-
-Los usuarios son tres: el ***médico***, que puede realizar el ABM de los pacientes y añadir obras sociales, la ***secretaria***, que solamente puede agregar y ver pacientes y añadir obras sociales y los ***usuarios comunes*** que tienen acceso sólo a su información personal.
+Hay tres tipos de usuarios: 
+-   **Médico**: puede realizar el ABM de los pacientes y añadir obras sociales.
+-   **Secretaria**: solamente puede agregar y ver pacientes y añadir obras sociales.
+-   **Paciente**: tiene acceso sólo a su información personal.
 
 La API le permite a los pacientes ver su informacion personal y editar sus datos. Cada usuario tiene un token de acceso único que restringe el acceso a sus propios datos.
 
 
-### Usuarios:
+### Datos para probar la app:
 
 #### Médico:
 * user: damian@gmail.com
@@ -45,10 +45,7 @@ La API le permite a los pacientes ver su informacion personal y editar sus datos
     Retorna los datos del usuario actualizados.
     
     Solo se le permite al usuario modificar su número de teléfono y su dirección.
-    
-    
-La colección de Postman se encuentra dentro de la carpeta postman
-    
+        
 ### Librerias externas:
 
 * select2 - https://select2.org/
