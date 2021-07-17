@@ -1,8 +1,8 @@
-## HealthCare System
+# HealthCare System
 
 https://sistemasdesalud.herokuapp.com/
 
-### Descripción:
+## Descripción:
 HealthCare System es un sistema que le permite al médico almacenar de forma online los datos de sus pacientes, sus historias clínicas, patologías, imágenes, etcétera. Fue desarrollado como parte de la materia Ingeniería de Aplicaciones Web utilizando **Laravel** y **Vue.js**.
 
 Hay tres tipos de usuarios: 
@@ -13,7 +13,7 @@ Hay tres tipos de usuarios:
 La API le permite a los pacientes ver su informacion personal y editar sus datos. Cada usuario tiene un token de acceso único que restringe el acceso a sus propios datos.
 
 
-### Datos para probar la app:
+## Datos para probar la app:
 
 #### Médico:
 * user: damian@gmail.com
@@ -28,7 +28,7 @@ La API le permite a los pacientes ver su informacion personal y editar sus datos
 * pwd: prueba123
 * API Token: S5Vz1zgEdFmEaA1UU9VxTAOYlwYqpA5YCBdbHlc7szn8YNlh2MsN4mRFltc02kil9w6NsTHVe2ILPHrQ
 
-### Prueba de API
+## Prueba de API
 
 #### Ruta para obtener/enviar datos del usuario = https://sistemasdesalud.herokuapp.com/api/user
 
@@ -45,8 +45,8 @@ La API le permite a los pacientes ver su informacion personal y editar sus datos
     Retorna los datos del usuario actualizados.
     
     Solo se le permite al usuario modificar su número de teléfono y su dirección.
-        
-### Librerias externas:
+       
+## Librerias externas:
 
 * select2 - https://select2.org/
 * magnific-popup - https://dimsemenov.com/plugins/magnific-popup/
